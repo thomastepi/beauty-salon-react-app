@@ -1,88 +1,74 @@
 import React from "react";
 import img from "../assets/images/pineapple.jpg";
 import img2 from "../assets/images/bone-straight.jpg";
-import DrawerPanel from "./DrawerPanel";
-import {
-  Box,
-  Button,
-  Center,
-  Heading,
-  Text,
-  VStack,
-  HStack,
-  Grid,
-} from "@chakra-ui/react";
+import { Box, Button, Center, Text, VStack, Grid } from "@chakra-ui/react";
+import useIsMobile from "../hooks/useIsMobile";
 
 const Landing = () => {
+  const isMobile = useIsMobile();
   return (
-    <Center bg="grey" h="100vh">
-      <Box w="95%">
-        <Grid templateColumns="repeat(1, 1fr 1fr)" gap={9}>
-          <Box
-            align="center"
-            bg="green"
-            py="45vh"
-            bgImg={img}
-            bgRepeat={"no-repeat"}
-            bgSize={"cover"}
-            pos={"relative"}
+    <>
+      <Center bg="#000">
+        <Box w="95%">
+          <Grid
+            templateColumns={isMobile ? "repeat(1, 1fr)" : "repeat(1, 1fr 1fr)"}
+            gap={9}
           >
-            <Box color="white" pos={"absolute"} top={5} left={5}>
-              <HStack spacing={5}>
-                <Heading size="3xl" fontFamily={"Montserrat"}>
-                  ANNETTE'S
-                </Heading>
-                <Text fontSize="3xl" fontFamily={"Montserrat"}>
-                  Beauty Salon
+            <Box
+              align="center"
+              bg="green"
+              py="45vh"
+              bgImg={img}
+              bgRepeat={"no-repeat"}
+              bgSize={"cover"}
+              pos={"relative"}
+            >
+              <Box color="white" pos={"absolute"} top={5} left={5}></Box>
+              <VStack
+                spacing={6}
+                color="white"
+                bg="black"
+                py={9}
+                pos={"absolute"}
+                bottom={10}
+                right={0}
+                w="60%"
+              >
+                <Text fontFamily={"Sacramento"} fontSize="3xl">
+                  Treat Your Hair
                 </Text>
-              </HStack>
+                <Button> Book Now</Button>
+              </VStack>
             </Box>
-            <VStack
-              color="white"
+            <Box
+              align="center"
               bg="black"
-              py={6}
-              pos={"absolute"}
-              bottom={0}
-              w="100%"
+              py="45vh"
+              bgImg={img2}
+              bgRepeat={"no-repeat"}
+              bgSize={"cover"}
+              pos={"relative"}
             >
-              <Text fontFamily={"Sacramento"} fontSize="3xl">
-                Relax and Indulge
-              </Text>
-              <Heading fontFamily={"Montserrat"}>SPA</Heading>
-              <Button> SPA Services</Button>
-            </VStack>
-          </Box>
-          <Box
-            align="center"
-            bg="black"
-            py="45vh"
-            bgImg={img2}
-            bgRepeat={"no-repeat"}
-            bgSize={"cover"}
-            pos={"relative"}
-          >
-            <Box pos={"absolute"} top={5} right={5}>
-              <DrawerPanel />
+              <VStack
+                spacing={6}
+                color="white"
+                bg="black"
+                py={9}
+                pos={"absolute"}
+                bottom={10}
+                right={0}
+                w="60%"
+              >
+                <Text fontFamily={"Sacramento"} fontSize="3xl">
+                  Let us Introduce Ourselves
+                </Text>
+                <Button>Read More</Button>
+              </VStack>
             </Box>
-
-            <VStack
-              color="white"
-              bg="black"
-              py={6}
-              pos={"absolute"}
-              bottom={0}
-              w="100%"
-            >
-              <Text fontFamily={"Sacramento"} fontSize="3xl">
-                Treat Your Hair
-              </Text>
-              <Heading fontFamily={"Montserrat"}>SALON</Heading>
-              <Button>Salon Services</Button>
-            </VStack>
-          </Box>
-        </Grid>
-      </Box>
-    </Center>
+          </Grid>
+        </Box>
+      </Center>
+    </>
   );
 };
 
