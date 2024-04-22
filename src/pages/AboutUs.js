@@ -1,9 +1,10 @@
 import React from "react";
 import { Box, Center, Text, VStack, Heading, HStack } from "@chakra-ui/react";
 import SharedLayout from "./SharedLayout";
-import img from "../assets/images/curly-hair.jpg";
-import img2 from "../assets/images/smooth-hair.jpg";
+import img from "../assets/images/gift.jpg";
+import img2 from "../assets/images/face-card.jpg";
 import img3 from "../assets/images/salon-interior2.jpg";
+import { PageHeadingBox } from "../components";
 
 const AboutUs = () => {
   return (
@@ -11,19 +12,7 @@ const AboutUs = () => {
       <Box bg="#000" color="white">
         <Center>
           <VStack>
-            <Box
-              w="90%"
-              bgImg={img}
-              bgRepeat={"no-repeat"}
-              bgSize={"cover"}
-              bgPos={"center"}
-              p="12rem"
-              mb="70px"
-            >
-              <Heading fontFamily={"pacifico"} size="2xl" align="center">
-                More Than Just a Salon
-              </Heading>
-            </Box>
+            <PageHeadingBox title="More Than Just a Salon" img={img} />
             <Box w="60%" py="90px">
               <HStack>
                 <VStack spacing={4}>
