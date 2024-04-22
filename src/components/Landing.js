@@ -1,14 +1,26 @@
 import React from "react";
 import img from "../assets/images/pineapple.jpg";
 import img2 from "../assets/images/bone-straight.jpg";
-import { Box, Button, Center, Text, VStack, Grid } from "@chakra-ui/react";
+import img3 from "../assets/images/salon-interior.jpg";
+import img4 from "../assets/images/foundation.jpg";
+import Newsletter from "./Newsletter";
+import {
+  Box,
+  Button,
+  Center,
+  Text,
+  VStack,
+  Grid,
+  Heading,
+  HStack,
+} from "@chakra-ui/react";
 import useIsMobile from "../hooks/useIsMobile";
 
 const Landing = () => {
   const isMobile = useIsMobile();
   return (
-    <>
-      <Center bg="#000">
+    <Box bg="#000" color="white">
+      <Center>
         <Box w="95%">
           <Grid
             templateColumns={isMobile ? "repeat(1, 1fr)" : "repeat(1, 1fr 1fr)"}
@@ -17,7 +29,7 @@ const Landing = () => {
             <Box
               align="center"
               bg="green"
-              py="45vh"
+              py="19rem"
               bgImg={img}
               bgRepeat={"no-repeat"}
               bgSize={"cover"}
@@ -43,7 +55,7 @@ const Landing = () => {
             <Box
               align="center"
               bg="black"
-              py="45vh"
+              py="19rem"
               bgImg={img2}
               bgRepeat={"no-repeat"}
               bgSize={"cover"}
@@ -60,15 +72,57 @@ const Landing = () => {
                 w="60%"
               >
                 <Text fontFamily={"Sacramento"} fontSize="3xl">
-                  Let us Introduce Ourselves
+                  Check Us Out
                 </Text>
-                <Button>Read More</Button>
+                <Button>Our Services</Button>
               </VStack>
             </Box>
           </Grid>
         </Box>
       </Center>
-    </>
+      <Center>
+        <Box w="50%" py="6rem" align="center">
+          <VStack spacing={8}>
+            <Heading>Your Oasis of Relaxation in Mile 3, Bamenda</Heading>
+            <Text fontSize="lg">
+              At Annette's Beauty & SPA, we offer a complete range of services
+              to pamper you from head to toe. Whether you're looking for a
+              luxurious hair treatment, a refreshing manicure and pedicure, or a
+              relaxing head and foot wash, our skilled team is dedicated to
+              providing you with a rejuvenating experience.
+            </Text>
+            <Button p="25px">SCHEDULE AN APPOINTMENT</Button>
+          </VStack>
+        </Box>
+      </Center>
+      <Center py="60px">
+        <Box w="90%">
+          <HStack flexDir={isMobile && "column"}>
+            <Box>
+              <HStack spacing={6}>
+                <Box
+                  p={{ base: "5rem", lg: "9rem" }}
+                  bgImg={img3}
+                  bgRepeat="no-repeat"
+                  bgSize="cover"
+                  bgPos="center"
+                ></Box>
+                <Box
+                  p={{ base: "5rem", lg: "9rem" }}
+                  bgImg={img4}
+                  bgRepeat="no-repeat"
+                  bgSize="cover"
+                  bgPos="center"
+                ></Box>
+              </HStack>
+            </Box>
+            <Box w="50%">
+              <Newsletter />
+            </Box>
+          </HStack>
+        </Box>
+      </Center>
+    </Box>
   );
 };
 
