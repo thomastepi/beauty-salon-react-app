@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Center, VStack, Button, HStack } from "@chakra-ui/react";
-import img from "../assets/images/locs.jpg";
+import img from "../assets/images/spa-natural-background.jpg";
 import SharedLayout from "./SharedLayout";
 import { PageHeadingBox, HairServices, SpaServices } from "../components";
 

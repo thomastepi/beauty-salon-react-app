@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Center, Text, VStack, Heading, HStack } from "@chakra-ui/react";
 import SharedLayout from "./SharedLayout";
-import img from "../assets/images/gift.jpg";
+import img from "../assets/images/perfume-bottle.jpg";
 import img2 from "../assets/images/face-card.jpg";
 import img3 from "../assets/images/salon-interior2.jpg";
 import { PageHeadingBox } from "../components";

@@ -1,6 +1,6 @@
 import React from "react";
-import img from "../assets/images/pineapple.jpg";
-import img2 from "../assets/images/bone-straight.jpg";
+import img from "../assets/images/simple-yogo.jpg";
+import img2 from "../assets/images/korede-braids.jpg";
 import img3 from "../assets/images/salon-interior.jpg";
 import img4 from "../assets/images/foundation.jpg";
 import Newsletter from "./Newsletter";
@@ -32,8 +32,7 @@ const Landing = () => {
               <Box
                 align="center"
                 bg="green"
-                h='80vh'
-                //py="19rem"
+                h="80vh"
                 bgImg={img}
                 bgRepeat={"no-repeat"}
                 bgSize={"cover"}
@@ -59,8 +58,7 @@ const Landing = () => {
               <Box
                 align="center"
                 bg="black"
-                //py="19rem"
-                h='80vh'
+                h="80vh"
                 bgImg={img2}
                 bgRepeat={"no-repeat"}
                 bgSize={"cover"}
