@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import img from "../assets/images/simple-yogo.jpg";
 import img2 from "../assets/images/korede-braids.jpg";
 import img3 from "../assets/images/salon-interior.jpg";
@@ -18,6 +19,7 @@ import useIsMobile from "../hooks/useIsMobile";
 
 const Landing = () => {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
   return (
     <Box bg="#000" color="white">
       <Box h={!isMobile && "80vh"}>
@@ -77,7 +79,13 @@ const Landing = () => {
                   <Text fontFamily={"Sacramento"} fontSize="3xl">
                     Check Us Out
                   </Text>
-                  <Button>Our Services</Button>
+                  <Button
+                    onClick={() => {
+                      navigate("/services");
+                    }}
+                  >
+                    Our Services
+                  </Button>
                 </VStack>
               </Box>
             </Grid>

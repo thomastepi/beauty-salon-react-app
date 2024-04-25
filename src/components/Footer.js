@@ -17,7 +17,7 @@ import {
 const Footer = () => {
   return (
     <>
-      <Box bg="black" color="white" py={4} borderTop="2px solid white">
+      <Box bg="black" color="white" py={4} borderTop="2px solid white" mt='75px'>
         <Center>
           <VStack spacing={"50px"}>
             <VStack>

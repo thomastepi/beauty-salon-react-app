@@ -6,7 +6,7 @@ import NavLinks from './NavLinks';
 import PageHeadingBox from './PageHeadingBox';
 import HairServices from './HairServices';
 import SpaServices from './SpaServices';
-
+import GiftCard from './GiftCard';
 
 export {
     Landing,
@@ -16,5 +16,6 @@ export {
     NavLinks,
     PageHeadingBox,
     HairServices,
-    SpaServices
+    SpaServices,
+    GiftCard,
 }

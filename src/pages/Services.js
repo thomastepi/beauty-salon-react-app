@@ -19,7 +19,7 @@ const Services = () => {
   };
   return (
     <SharedLayout>
-      <Center bg="#000" color="white">
+      <Center>
         <VStack w="100%">
           <PageHeadingBox
             title="Relax, Rejuvenate, and Beautify: Our Services Await"

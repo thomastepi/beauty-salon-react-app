@@ -1,5 +1,5 @@
 import React from "react";
-import { Home, AboutUs, Services } from "./pages";
+import { Home, AboutUs, Services, GiftCardPage } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/gift-cards" element={<GiftCardPage />} />
         </Routes>
       </Router>
     </>

@@ -9,7 +9,7 @@ import { PageHeadingBox } from "../components";
 const AboutUs = () => {
   return (
     <SharedLayout>
-      <Box bg="#000" color="white">
+      <Box>
         <Center>
           <VStack>
             <PageHeadingBox title="More Than Just a Salon" img={img} />
