@@ -7,6 +7,7 @@ import PageHeadingBox from './PageHeadingBox';
 import HairServices from './HairServices';
 import SpaServices from './SpaServices';
 import GiftCard from './GiftCard';
+import GoogleMaps from './GoogleMaps';
 
 export {
     Landing,
@@ -18,4 +19,5 @@ export {
     HairServices,
     SpaServices,
     GiftCard,
+    GoogleMaps,
 }

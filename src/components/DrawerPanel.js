@@ -10,13 +10,12 @@ import {
   DrawerFooter,
   DrawerCloseButton,
   Box,
-  VStack,
   HStack,
   Button,
-  Text,
   Center,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import NavLinks from "./NavLinks";
 
 const DrawerPanel = () => {
   const isMobile = useIsMobile();
@@ -35,29 +34,7 @@ const DrawerPanel = () => {
           <DrawerBody marginTop={20}>
             <Box py={4}>
               <Box color="white">
-                <VStack spacing={7}>
-                  <>
-                    <Text>Home</Text>
-                  </>
-                  <>
-                    <Text>Salon Services</Text>
-                  </>
-                  <>
-                    <Text>SPA Services</Text>
-                  </>
-                  <>
-                    <Text>Shop</Text>
-                  </>
-                  <>
-                    <Text>Our Team</Text>
-                  </>
-                  <>
-                    <Text>Refer a Friend</Text>
-                  </>
-                  <>
-                    <Text>Contact Us</Text>
-                  </>
-                </VStack>
+                <NavLinks flexDir={"column"} />
               </Box>
             </Box>
           </DrawerBody>

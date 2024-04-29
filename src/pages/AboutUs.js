@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, Center, Text, VStack, Heading, HStack } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Text,
+  VStack,
+  Heading,
+  HStack,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import SharedLayout from "./SharedLayout";
 import img from "../assets/images/perfume-bottle.jpg";
 import img2 from "../assets/images/face-card.jpg";
@@ -7,6 +15,7 @@ import img3 from "../assets/images/salon-interior2.jpg";
 import { PageHeadingBox } from "../components";
 
 const AboutUs = () => {
+  const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
   return (
     <SharedLayout>
       <Box>
@@ -14,7 +23,7 @@ const AboutUs = () => {
           <VStack>
             <PageHeadingBox title="More Than Just a Salon" img={img} />
             <Box w="60%" py="90px">
-              <HStack>
+              <HStack flexDir={isMobile && "column"} spacing={5}>
                 <VStack spacing={4}>
                   <Text fontSize="lg">
                     My passion for hair and beauty started when I was young.
@@ -46,7 +55,7 @@ const AboutUs = () => {
               </Heading>
             </Box>
             <Box w="60%" py="90px">
-              <HStack spacing={5}>
+              <HStack spacing={5} flexDir={isMobile && "column"}>
                 <Box
                   bgImg={img3}
                   p="15rem"

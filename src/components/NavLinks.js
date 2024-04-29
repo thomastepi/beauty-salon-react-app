@@ -1,19 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Box, HStack, Link } from "@chakra-ui/react";
+import { Box, Stack, Link } from "@chakra-ui/react";
 
-const NavLinks = () => {
+const NavLinks = ({ flexDir }) => {
   const links = [
     { title: "About Us", to: "/about-us" },
     { title: "Services", to: "/services" },
     { title: "Gift Cards", to: "/gift-cards" },
-    { title: "Refer a Friend", to: "/refer-a-friend" },
+    { title: "Gallery", to: "/gallery" },
     { title: "Contact Us", to: "/contact-us" },
   ];
 
   return (
     <Box>
-      <HStack spacing={5}>
+      <Stack flexDir={flexDir} alignItems="center" spacing={5}>
         {links.map((link) => (
           <Link
             key={link.title}
@@ -31,7 +31,7 @@ const NavLinks = () => {
             {link.title}
           </Link>
         ))}
-      </HStack>
+      </Stack>
     </Box>
   );
 };

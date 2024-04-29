@@ -14,11 +14,11 @@ import {
   Grid,
   Heading,
   HStack,
+  useBreakpointValue,
 } from "@chakra-ui/react";
-import useIsMobile from "../hooks/useIsMobile";
 
 const Landing = () => {
-  const isMobile = useIsMobile();
+  const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
   const navigate = useNavigate();
   return (
     <Box bg="#000" color="white">
@@ -33,7 +33,7 @@ const Landing = () => {
             >
               <Box
                 align="center"
-                bg="green"
+                bg="grey"
                 h="80vh"
                 bgImg={img}
                 bgRepeat={"no-repeat"}
@@ -59,7 +59,7 @@ const Landing = () => {
               </Box>
               <Box
                 align="center"
-                bg="black"
+                bg="grey"
                 h="80vh"
                 bgImg={img2}
                 bgRepeat={"no-repeat"}
@@ -93,7 +93,7 @@ const Landing = () => {
         </Center>
       </Box>
       <Center>
-        <Box w="50%" py="6rem" align="center">
+        <Box w={isMobile ? "85%" : "50%"} py="6rem" align="center">
           <VStack spacing={8}>
             <Heading fontFamily="pacifico">
               Your Oasis of Relaxation in Mile 3, Bamenda
@@ -111,21 +111,21 @@ const Landing = () => {
       </Center>
       <Center py="60px">
         <HStack
-          w="70%"
+          w="90%"
           flexDir={isMobile && "column"}
-          justifyContent={"space-between"}
+          justifyContent={"center"}
         >
           <Box>
             <HStack spacing={6}>
               <Box
-                p={{ base: "5rem", lg: "9rem" }}
+                p={{ base: "5rem", md: "7rem", lg: "9rem" }}
                 bgImg={img3}
                 bgRepeat="no-repeat"
                 bgSize="cover"
                 bgPos="center"
               ></Box>
               <Box
-                p={{ base: "5rem", lg: "9rem" }}
+                p={{ base: "5rem", md: "7rem", lg: "9rem" }}
                 bgImg={img4}
                 bgRepeat="no-repeat"
                 bgSize="cover"
@@ -133,7 +133,7 @@ const Landing = () => {
               ></Box>
             </HStack>
           </Box>
-          <Box w="50%">
+          <Box w={isMobile ? "85%" : "50%"}>
             <Newsletter />
           </Box>
         </HStack>

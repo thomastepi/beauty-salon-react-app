@@ -6,12 +6,13 @@ import {
   Tr,
   Td,
   TableContainer,
+  Box,
 } from "@chakra-ui/react";
 
 const Facials = () => {
   return (
-    <>
-      <TableContainer w={{ base: "20rem", md: "30rem", lg: "45rem" }}>
+    <Box w={{ base: "95%", md: "80%", lg: "70%" }}>
+      <TableContainer>
         <Heading>Facials:</Heading>
         <Table variant="simple">
           <Tbody>
@@ -38,7 +39,7 @@ const Facials = () => {
           </Tbody>
         </Table>
       </TableContainer>
-    </>
+    </Box>
   );
 };
 

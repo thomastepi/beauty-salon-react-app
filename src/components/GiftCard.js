@@ -4,8 +4,6 @@ import {
   CardBody,
   CardFooter,
   Text,
-  Button,
-  Divider,
   Stack,
   Heading,
   Center,
@@ -14,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 
 const GiftCard = ({ price }) => {
-  const [isHovered, setIsHovered] = useState("Buy Now");
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <>
@@ -25,6 +23,9 @@ const GiftCard = ({ price }) => {
         border={"1px solid white"}
         align="center"
         w="lg"
+        cursor={isHovered ? "pointer" : "default"}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
       >
         <>
           <CardBody align="center">
@@ -38,25 +39,31 @@ const GiftCard = ({ price }) => {
                 </Heading>
               </VStack>
 
-              <Text fontSize="3xl" fontWeight="bold">
-                <Badge mr="1" fontSize=".6em" colorScheme="AlphaBlack">
-                  $
-                </Badge>
-                {price}
-              </Text>
+              <VStack spacing={0}>
+                <Text fontSize="3xl" fontWeight="bold">
+                  <Badge mr="1" fontSize=".6em" colorScheme="AlphaBlack">
+                    $
+                  </Badge>
+                  {price}
+                </Text>
+              </VStack>
             </Stack>
           </CardBody>
-          <Divider />
-          <CardFooter bg="#F6F5F5" w="100%" justify="center">
-            <Center>
-              <Button
-                colorScheme="blackAlpha"
-                onMouseEnter={() => setIsHovered("Add to Cart")}
-                onMouseLeave={() => setIsHovered("Buy Now")}
-              >
-                {isHovered}
-              </Button>
-            </Center>
+          <CardFooter
+            position="relative"
+            h="60px"
+            bg={isHovered ? "#F6F5F5" : "#0000"}
+            transition="background .4s ease-in-out"
+            w="100%"
+            justify="center"
+          >
+            <>
+              <Center>
+                <Text color={isHovered ? "black" : "white"}>
+                  {isHovered ? "Add To Cart" : "Gift Card"}
+                </Text>
+              </Center>
+            </>
           </CardFooter>
         </>
       </Card>

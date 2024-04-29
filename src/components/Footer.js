@@ -7,6 +7,7 @@ import {
   Heading,
   HStack,
   Button,
+  Link,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,7 +18,13 @@ import {
 const Footer = () => {
   return (
     <>
-      <Box bg="black" color="white" py={4} borderTop="2px solid white" mt='75px'>
+      <Box
+        bg="#191919"
+        color="white"
+        pt={4}
+        borderTop="1px solid white"
+        mt="75px"
+      >
         <Center>
           <VStack spacing={"50px"}>
             <VStack>
@@ -38,6 +45,18 @@ const Footer = () => {
               </Button>
             </HStack>
             <Text>© {new Date().getFullYear()} Annette's Beauty & SPA</Text>
+          </VStack>
+        </Center>
+        <Center bg="black" mt="30px">
+          <VStack borderTop="1px solid white" spacing={1} w="80%" py="7px">
+            <Text>Made with ❤️ by Thomas Tepi</Text>
+            <Link
+              target="_blank"
+              rel="noreferrer noopener"
+              href="https://www.thomastepi.com"
+            >
+              www.thomastepi.com
+            </Link>
           </VStack>
         </Center>
       </Box>

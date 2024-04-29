@@ -1,14 +1,22 @@
 import React from "react";
-import { Center, Heading, Text, VStack, HStack } from "@chakra-ui/react";
+import {
+  Center,
+  Heading,
+  Text,
+  VStack,
+  HStack,
+  Badge,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import useIsMobile from "../hooks/useIsMobile";
 import DrawerPanel from "./DrawerPanel";
 import NavLinks from "./NavLinks";
 import { useNavigate } from "react-router-dom";
 const Header = () => {
-  const isMobile = useIsMobile();
+  const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
   const navigate = useNavigate();
+  const cartItemCount = 2;
   return (
     <>
       <Center py={4} bg="black" color="white">
@@ -28,8 +36,15 @@ const Header = () => {
               Beauty & SPA
             </Text>
           </VStack>
-          {!isMobile && <NavLinks />}
-          <FontAwesomeIcon icon={faCartShopping} size="lg" />
+          {!isMobile && <NavLinks flexDir={"row"} />}
+          <HStack>
+            <FontAwesomeIcon cursor="pointer" icon={faCartShopping} size="lg" />
+            {cartItemCount > 0 && (
+              <Badge ml={-2} colorScheme="red" borderRadius="full">
+                {cartItemCount}
+              </Badge>
+            )}
+          </HStack>
         </HStack>
       </Center>
     </>

@@ -5,7 +5,7 @@ import { LocServices, BraidServices, WeaveServices } from "./salonServices";
 const HairServices = () => {
   return (
     <Box w="100%">
-      <VStack spacing={9}>
+      <VStack spacing={"12"}>
         <LocServices />
         <BraidServices />
         <WeaveServices />

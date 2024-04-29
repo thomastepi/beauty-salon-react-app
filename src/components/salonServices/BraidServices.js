@@ -6,12 +6,13 @@ import {
   Tr,
   Td,
   TableContainer,
+  Box,
 } from "@chakra-ui/react";
 
 const BraidServices = () => {
   return (
-    <>
-      <TableContainer w={{ base: "20rem", md: "30rem", lg: "45rem" }}>
+    <Box w={{ base: "95%", md: "80%", lg: "70%" }}>
+      <TableContainer>
         <Heading>Braiding Services:</Heading>
         <Table variant="simple">
           <Tbody>
@@ -62,7 +63,7 @@ const BraidServices = () => {
           </Tbody>
         </Table>
       </TableContainer>
-    </>
+    </Box>
   );
 };
 

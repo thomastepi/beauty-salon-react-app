@@ -10,7 +10,7 @@ const PageHeadingBox = ({ title, img }) => {
         bgRepeat={"no-repeat"}
         bgSize={"cover"}
         bgPos={"center"}
-        p="12rem"
+        py="12rem"
         mb="70px"
       >
         <Heading fontFamily={"pacifico"} size="2xl" align="center">
