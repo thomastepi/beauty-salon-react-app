@@ -13,10 +13,11 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import DrawerPanel from "./DrawerPanel";
 import NavLinks from "./NavLinks";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 const Header = () => {
   const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
   const navigate = useNavigate();
-  const cartItemCount = 2;
+  const cartItemCount = useSelector((state) => state.cart.amount);
   return (
     <>
       <Center py={4} bg="black" color="white">
@@ -38,7 +39,12 @@ const Header = () => {
           </VStack>
           {!isMobile && <NavLinks flexDir={"row"} />}
           <HStack>
-            <FontAwesomeIcon cursor="pointer" icon={faCartShopping} size="lg" />
+            <FontAwesomeIcon
+              onClick={() => navigate("/cart")}
+              cursor="pointer"
+              icon={faCartShopping}
+              size="lg"
+            />
             {cartItemCount > 0 && (
               <Badge ml={-2} colorScheme="red" borderRadius="full">
                 {cartItemCount}

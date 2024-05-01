@@ -8,6 +8,7 @@ import HairServices from './HairServices';
 import SpaServices from './SpaServices';
 import GiftCard from './GiftCard';
 import GoogleMaps from './GoogleMaps';
+import CartItem from './CartItem';
 
 export {
     Landing,
@@ -20,4 +21,5 @@ export {
     SpaServices,
     GiftCard,
     GoogleMaps,
+    CartItem,
 }

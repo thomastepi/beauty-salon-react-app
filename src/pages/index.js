@@ -4,5 +4,6 @@ import Services from "./Services";
 import GiftCardPage from "./GiftCardPage";
 import ContactUs from "./ContactUs";
 import Gallery from "./Gallery";
+import Cart from "./Cart";
 
-export { Home, AboutUs, Services, GiftCardPage, ContactUs, Gallery, };
+export { Home, AboutUs, Services, GiftCardPage, ContactUs, Gallery, Cart, };

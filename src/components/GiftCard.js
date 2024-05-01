@@ -10,13 +10,28 @@ import {
   Badge,
   VStack,
 } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/cart/cartSlice";
 
-const GiftCard = ({ price }) => {
+const GiftCard = ({ price, info }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [confirmAdd, setConfirmAdd] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleConfirmAdd = () => {
+    setConfirmAdd(true);
+    setTimeout(() => {
+      setConfirmAdd(false);
+    }, 3000);
+  };
 
   return (
     <>
       <Card
+        onClick={() => {
+          dispatch(addToCart(info));
+          handleConfirmAdd();
+        }}
         maxW="sm"
         bg="#0000"
         color="white"
@@ -60,7 +75,8 @@ const GiftCard = ({ price }) => {
             <>
               <Center>
                 <Text color={isHovered ? "black" : "white"}>
-                  {isHovered ? "Add To Cart" : "Gift Card"}
+                  {isHovered && !confirmAdd ? "Add To Cart" : "Gift Card "}
+                  {confirmAdd && "Added!"}
                 </Text>
               </Center>
             </>

@@ -6,6 +6,7 @@ import {
   GiftCardPage,
   ContactUs,
   Gallery,
+  Cart,
 } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/gift-cards" element={<GiftCardPage />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/gallery" element={<Gallery />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </Router>
     </>

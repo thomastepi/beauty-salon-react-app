@@ -6,7 +6,12 @@ import { GiftCard, PageHeadingBox } from "../components";
 
 const GiftCardPage = () => {
   const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
-  const giftCardPrices = [50, 100, 150, 200];
+  const giftCardInfo = [
+    { id: 1, price: 50, quantity: 1 },
+    { id: 2, price: 100, quantity: 1 },
+    { id: 3, price: 150, quantity: 1 },
+    { id: 4, price: 200, quantity: 1 },
+  ];
   return (
     <SharedLayout>
       <Center>
@@ -22,8 +27,8 @@ const GiftCardPage = () => {
               }
               gap={"12"}
             >
-              {giftCardPrices.map((price) => (
-                <GiftCard key={price} price={price} />
+              {giftCardInfo.map((info) => (
+                <GiftCard key={info.id} price={info.price} info={info} />
               ))}
             </Grid>
           </Center>
