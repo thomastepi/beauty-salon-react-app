@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Center, VStack } from "@chakra-ui/react";
+import { Box, Text, Center, VStack, Heading, Button } from "@chakra-ui/react";
 import SharedLayout from "./SharedLayout";
 import { CartItem, PageHeadingBox } from "../components";
 import { useSelector } from "react-redux";
@@ -17,8 +17,12 @@ const Cart = () => {
               <CartItem />
             </Box>
             {total > 0 && (
-              <Box>
-                <Text fontSize="3xl">Total: ${total}</Text>
+              <Box w="100%" py="60px">
+                <VStack alignItems="end">
+                  <Heading>Cart Totals</Heading>
+                  <Text fontSize="3xl">Total: ${total}</Text>
+                  <Button>Proceed to Checkout</Button>
+                </VStack>
               </Box>
             )}
           </Box>

@@ -11,7 +11,9 @@ import {
   Heading,
   Badge,
   HStack,
+  Tooltip,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 import { ChevronUpIcon, ChevronDownIcon, DeleteIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -23,6 +25,7 @@ import {
 const CartItem = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <>
       <Box>
@@ -64,9 +67,11 @@ const CartItem = () => {
                       </Stack>
                     </CardBody>
                   </Card>
-                  <Button onClick={() => dispatch(removeFromCart(item.id))}>
-                    <DeleteIcon />
-                  </Button>
+                  <Tooltip label="remove item">
+                    <Button onClick={() => dispatch(removeFromCart(item.id))}>
+                      <DeleteIcon />
+                    </Button>
+                  </Tooltip>
                 </HStack>
                 <Spacer />
                 <Box>
@@ -82,7 +87,12 @@ const CartItem = () => {
             ))}
           </Stack>
         ) : (
-          <Heading align="center">Your Cart is empty</Heading>
+          <VStack spacing={7}>
+            <Heading align="center">Your cart is empty</Heading>
+            <Button onClick={() => navigate("/gift-cards")}>
+              Return to shop
+            </Button>
+          </VStack>
         )}
       </Box>
     </>
