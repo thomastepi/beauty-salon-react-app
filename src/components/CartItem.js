@@ -4,12 +4,9 @@ import {
   Text,
   Button,
   Spacer,
-  Card,
-  CardBody,
   Stack,
   VStack,
   Heading,
-  Badge,
   HStack,
   Tooltip,
 } from "@chakra-ui/react";
@@ -21,6 +18,7 @@ import {
   increaseAmount,
   decreaseAmount,
 } from "../features/cart/cartSlice";
+import StaticGiftCard from "./StaticGiftCard";
 
 const CartItem = () => {
   const cart = useSelector((state) => state.cart);
@@ -34,39 +32,7 @@ const CartItem = () => {
             {cart.items.map((item) => (
               <HStack key={item.id}>
                 <HStack>
-                  <Card
-                    maxW="sm"
-                    bg="#0000"
-                    color="white"
-                    border={"1px solid white"}
-                    align="center"
-                    w="lg"
-                  >
-                    <CardBody align="center">
-                      <Stack mt="6" spacing="4">
-                        <VStack spacing={0}>
-                          <Heading size="lg" fontFamily={"pacifico"}>
-                            Annette's
-                          </Heading>
-                          <Heading size="sm" fontFamily={"pacifico"}>
-                            Beauty & SPA
-                          </Heading>
-                        </VStack>
-                        <VStack spacing={0}>
-                          <Text fontSize="3xl" fontWeight="bold">
-                            <Badge
-                              mr="1"
-                              fontSize=".6em"
-                              colorScheme="AlphaBlack"
-                            >
-                              $
-                            </Badge>
-                            {item.price}
-                          </Text>
-                        </VStack>
-                      </Stack>
-                    </CardBody>
-                  </Card>
+                  <StaticGiftCard price={item.price} />
                   <Tooltip label="remove item">
                     <Button onClick={() => dispatch(removeFromCart(item.id))}>
                       <DeleteIcon />

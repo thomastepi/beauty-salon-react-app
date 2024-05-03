@@ -1,17 +1,12 @@
 import React from "react";
 import SharedLayout from "./SharedLayout";
 import img from "../assets/images/gift.jpg";
+import { products } from "../utils/products";
 import { Center, VStack, Grid, useBreakpointValue } from "@chakra-ui/react";
 import { GiftCard, PageHeadingBox } from "../components";
 
 const GiftCardPage = () => {
   const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
-  const giftCardInfo = [
-    { id: 1, price: 50, quantity: 1 },
-    { id: 2, price: 100, quantity: 1 },
-    { id: 3, price: 150, quantity: 1 },
-    { id: 4, price: 200, quantity: 1 },
-  ];
   return (
     <SharedLayout>
       <Center>
@@ -27,8 +22,13 @@ const GiftCardPage = () => {
               }
               gap={"12"}
             >
-              {giftCardInfo.map((info) => (
-                <GiftCard key={info.id} price={info.price} info={info} />
+              {products.map((product) => (
+                <GiftCard
+                  key={product.id}
+                  price={product.price}
+                  product={product}
+                  id={product.id}
+                />
               ))}
             </Grid>
           </Center>

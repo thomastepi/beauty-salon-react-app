@@ -10,27 +10,17 @@ import {
   Badge,
   VStack,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../features/cart/cartSlice";
+import { useNavigate } from "react-router-dom";
 
-const GiftCard = ({ price, info }) => {
+const GiftCard = ({ price, id }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const [confirmAdd, setConfirmAdd] = useState(false);
-  const dispatch = useDispatch();
-
-  const handleConfirmAdd = () => {
-    setConfirmAdd(true);
-    setTimeout(() => {
-      setConfirmAdd(false);
-    }, 3000);
-  };
+  const navigate = useNavigate();
 
   return (
     <>
       <Card
         onClick={() => {
-          dispatch(addToCart(info));
-          handleConfirmAdd();
+          navigate(`/product/${id}`);
         }}
         maxW="sm"
         bg="#0000"
@@ -75,8 +65,7 @@ const GiftCard = ({ price, info }) => {
             <>
               <Center>
                 <Text color={isHovered ? "black" : "white"}>
-                  {isHovered && !confirmAdd ? "Add To Cart" : "Gift Card "}
-                  {confirmAdd && "Added!"}
+                  {isHovered ? "Buy Gift Card" : "Gift Card "}
                 </Text>
               </Center>
             </>

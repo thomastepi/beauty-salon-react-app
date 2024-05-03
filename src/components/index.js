@@ -9,6 +9,8 @@ import SpaServices from './SpaServices';
 import GiftCard from './GiftCard';
 import GoogleMaps from './GoogleMaps';
 import CartItem from './CartItem';
+import StaticGiftCard from './StaticGiftCard';
+import BillingInfo from './BillingInfo';
 
 export {
     Landing,
@@ -22,4 +24,6 @@ export {
     GiftCard,
     GoogleMaps,
     CartItem,
+    StaticGiftCard,
+    BillingInfo,
 }

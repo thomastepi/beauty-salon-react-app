@@ -13,10 +13,12 @@ import { CartItem, PageHeadingBox } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import img from "../assets/images/spa-room.jpg";
 import { clearCart } from "../features/cart/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { total } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   return (
     <SharedLayout>
       <Center>
@@ -37,7 +39,9 @@ const Cart = () => {
                   >
                     Clear Cart
                   </Button>
-                  <Button>Proceed to Checkout</Button>
+                  <Button onClick={() => navigate("/checkout")}>
+                    Proceed to Checkout
+                  </Button>
                 </Stack>
                 <Box w="100%" py="60px">
                   <VStack alignItems="end">
