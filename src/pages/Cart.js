@@ -7,6 +7,7 @@ import {
   Heading,
   Button,
   Stack,
+  HStack,
 } from "@chakra-ui/react";
 import SharedLayout from "./SharedLayout";
 import { CartItem, PageHeadingBox } from "../components";
@@ -30,18 +31,25 @@ const Cart = () => {
             </Box>
             {total > 0 && (
               <>
-                <Stack flexDir="row" justifyContent="end" py="20px">
-                  <Button
-                    onClick={() => {
-                      dispatch(clearCart());
-                      localStorage.removeItem("persist:root");
-                    }}
-                  >
-                    Clear Cart
-                  </Button>
-                  <Button onClick={() => navigate("/checkout")}>
-                    Proceed to Checkout
-                  </Button>
+                <Stack flexDir="row" justifyContent="space-between" py="20px">
+                  <Box>
+                    <Button onClick={() => navigate("/gift-cards")}>
+                      Continue Shopping
+                    </Button>
+                  </Box>
+                  <HStack>
+                    <Button
+                      onClick={() => {
+                        dispatch(clearCart());
+                        localStorage.removeItem("persist:root");
+                      }}
+                    >
+                      Clear Cart
+                    </Button>
+                    <Button onClick={() => navigate("/checkout")}>
+                      Proceed to Checkout
+                    </Button>
+                  </HStack>
                 </Stack>
                 <Box w="100%" py="60px">
                   <VStack alignItems="end">

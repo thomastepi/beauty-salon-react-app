@@ -14,23 +14,40 @@ import {
   Textarea,
   FormLabel,
   Button,
+  useToast,
 } from "@chakra-ui/react";
 import img from "../assets/images/black-braids.jpg";
 import { PageHeadingBox, StaticGiftCard } from "../components";
 import SharedLayout from "./SharedLayout";
 import { addToCart } from "../features/cart/cartSlice";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  updateRecipientEmail,
+  updateSenderName,
+  updateMessage,
+} from "../features/giftCard/giftCardFormSlice";
 
 const Product = () => {
+  const toast = useToast();
   const { productId } = useParams();
   const parsedProductId = parseInt(productId);
   const product = products.find((product) => product.id === parsedProductId);
+
+  const cardFormData = useSelector((state) => state.giftCardForm);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
-    dispatch(addToCart(product));
+    if (!cardFormData.recipientEmail || !cardFormData.senderName) {
+      toast({
+        description: "Please fill out the recipient and sender fields",
+        status: "error",
+        position: "top",
+      });
+      return;
+    }
+    dispatch(addToCart({ ...product, ...cardFormData }));
     navigate("/cart");
   };
 
@@ -62,6 +79,10 @@ const Product = () => {
                           borderRadius={0}
                           placeholder="Enter Recipient Email"
                           type="email"
+                          value={cardFormData.recipientEmail}
+                          onChange={(e) =>
+                            dispatch(updateRecipientEmail(e.target.value))
+                          }
                         />
                       </FormControl>
                       <FormControl mt="15px" isRequired id="email">
@@ -70,6 +91,10 @@ const Product = () => {
                           borderRadius={0}
                           placeholder="Enter Your Name"
                           type="text"
+                          value={cardFormData.senderName}
+                          onChange={(e) =>
+                            dispatch(updateSenderName(e.target.value))
+                          }
                         />
                       </FormControl>
                       <FormControl mt="15px" id="message">
@@ -77,6 +102,10 @@ const Product = () => {
                         <Textarea
                           borderRadius={0}
                           placeholder="Add a Message (Optional)"
+                          value={cardFormData.message}
+                          onChange={(e) =>
+                            dispatch(updateMessage(e.target.value))
+                          }
                         />
                       </FormControl>
                     </form>

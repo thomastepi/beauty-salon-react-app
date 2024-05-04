@@ -9,6 +9,9 @@ import {
   Cart,
   Product,
   Checkout,
+  ErrorPage,
+  Success,
+  Cancel,
 } from "./pages";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
@@ -25,6 +28,9 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:productId" element={<Product />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/success" element={<Success />} />
+          <Route path="/cancel" element={<Cancel />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
     </>

@@ -14,8 +14,8 @@ const StaticGiftCard = ({ price }) => {
     <>
       <Card
         maxW="sm"
-        bg="#0000"
-        color="white"
+        bg="#E2DFD0"
+        color="black"
         border={"1px solid white"}
         align="center"
         w="100%"

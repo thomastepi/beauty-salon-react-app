@@ -22,8 +22,10 @@ import StaticGiftCard from "./StaticGiftCard";
 
 const CartItem = () => {
   const cart = useSelector((state) => state.cart);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   return (
     <>
       <Box>
@@ -39,6 +41,29 @@ const CartItem = () => {
                     </Button>
                   </Tooltip>
                 </HStack>
+                <Spacer />
+                <Box w="100%" display="flex" justifyContent="center">
+                  <VStack w="50%" spacing={0} alignItems="start">
+                    <Text>
+                      <span style={{ fontWeight: "bold", fontSize: "large" }}>
+                        Recipient:
+                      </span>{" "}
+                      {item.recipientEmail}
+                    </Text>
+                    <Text>
+                      <span style={{ fontWeight: "bold", fontSize: "large" }}>
+                        Sender:
+                      </span>{" "}
+                      {item.senderName}
+                    </Text>
+                    <Text>
+                      <span style={{ fontWeight: "bold", fontSize: "large" }}>
+                        Message:
+                      </span>{" "}
+                      {item.message}
+                    </Text>
+                  </VStack>
+                </Box>
                 <Spacer />
                 <Box>
                   <Button onClick={() => dispatch(increaseAmount(item.id))}>

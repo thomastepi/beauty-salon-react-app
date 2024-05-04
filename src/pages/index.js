@@ -7,6 +7,9 @@ import Gallery from "./Gallery";
 import Cart from "./Cart";
 import Product from "./Product";
 import Checkout from "./Checkout";
+import ErrorPage from "./ErrorPage";
+import Success from "./Success";
+import Cancel from "./Cancel";
 
 export {
   Home,
@@ -18,4 +21,7 @@ export {
   Cart,
   Product,
   Checkout,
+  ErrorPage,
+  Success,
+  Cancel,
 };
