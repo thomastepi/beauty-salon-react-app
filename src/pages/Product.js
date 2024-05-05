@@ -16,7 +16,6 @@ import {
   Button,
   useToast,
 } from "@chakra-ui/react";
-import img from "../assets/images/black-braids.jpg";
 import { PageHeadingBox, StaticGiftCard } from "../components";
 import SharedLayout from "./SharedLayout";
 import { addToCart } from "../features/cart/cartSlice";
@@ -25,6 +24,7 @@ import {
   updateRecipientEmail,
   updateSenderName,
   updateMessage,
+  resetForm,
 } from "../features/giftCard/giftCardFormSlice";
 
 const Product = () => {
@@ -48,6 +48,7 @@ const Product = () => {
       return;
     }
     dispatch(addToCart({ ...product, ...cardFormData }));
+    dispatch(resetForm());
     navigate("/cart");
   };
 
@@ -56,7 +57,10 @@ const Product = () => {
       <SharedLayout>
         <Center>
           <VStack w="100%">
-            <PageHeadingBox img={img} title="Product" />
+            <PageHeadingBox
+              img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/black-braids.jpg`}
+              title="Personalize Your Gift Card"
+            />
             <Grid
               templateColumns={useBreakpointValue({
                 base: "repeat(1, 1fr)",

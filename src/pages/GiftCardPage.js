@@ -1,6 +1,5 @@
 import React from "react";
 import SharedLayout from "./SharedLayout";
-import img from "../assets/images/gift.jpg";
 import { products } from "../utils/products";
 import { Center, VStack, Grid, useBreakpointValue } from "@chakra-ui/react";
 import { GiftCard, PageHeadingBox } from "../components";
@@ -13,7 +12,7 @@ const GiftCardPage = () => {
         <VStack w="100%">
           <PageHeadingBox
             title="Treat Someone Special: Purchase a Gift Card"
-            img={img}
+            img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/gift.jpg`}
           />
           <Center w="80%">
             <Grid

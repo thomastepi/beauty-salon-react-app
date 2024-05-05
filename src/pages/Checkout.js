@@ -10,14 +10,15 @@ import {
   Grid,
   Button,
   useToast,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { BillingInfo, PageHeadingBox, StaticGiftCard } from "../components";
-import img from "../assets/images/smiling-mary.jpg";
 import { useSelector } from "react-redux";
 import { loadStripe } from "@stripe/stripe-js";
 
 const Checkout = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const isMobile = useBreakpointValue({ base: true, md: false });
   const cart = useSelector((state) => state.cart);
   const toast = useToast();
 
@@ -42,7 +43,7 @@ const Checkout = () => {
         }
       );
       const session = await response.json();
-      const result = await stripe.redirectToCheckout({
+      await stripe.redirectToCheckout({
         sessionId: session.id,
       });
       setIsLoading(false);
@@ -50,7 +51,7 @@ const Checkout = () => {
       if (error) {
         toast({
           title: "An error occurred.",
-          description: "Unable to process payment",
+          description: "Please try again later.",
           status: "error",
           duration: 9000,
           isClosable: true,
@@ -66,8 +67,14 @@ const Checkout = () => {
       <SharedLayout>
         <Center>
           <VStack w="100%">
-            <PageHeadingBox img={img} title="Checkout" />
-            <Grid templateColumns={"repeat(2, 1fr)"} gap={9}>
+            <PageHeadingBox
+              img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/smiling-mary.jpg`}
+              title="Checkout"
+            />
+            <Grid
+              templateColumns={isMobile ? "repeat(1, 1fr)" : "repeat(2, 1fr)"}
+              gap={9}
+            >
               <BillingInfo />
               <Box>
                 <VStack spacing={5} border="1px solid white" p="10px">

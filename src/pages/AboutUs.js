@@ -9,9 +9,6 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import SharedLayout from "./SharedLayout";
-import img from "../assets/images/perfume-bottle.jpg";
-import img2 from "../assets/images/face-card.jpg";
-import img3 from "../assets/images/salon-interior2.jpg";
 import { PageHeadingBox } from "../components";
 
 const AboutUs = () => {
@@ -21,7 +18,10 @@ const AboutUs = () => {
       <Box>
         <Center>
           <VStack>
-            <PageHeadingBox title="More Than Just a Salon" img={img} />
+            <PageHeadingBox
+              title="More Than Just a Salon"
+              img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/perfume-bottle.jpg`}
+            />
             <Box w="60%" py="90px">
               <HStack flexDir={isMobile && "column"} spacing={5}>
                 <VStack spacing={4}>
@@ -41,7 +41,7 @@ const AboutUs = () => {
                   </Text>
                 </VStack>
                 <Box
-                  bgImg={img2}
+                  bgImg={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/face-card.jpg`}
                   p="15rem"
                   bgRepeat={"no-repeat"}
                   bgSize={"cover"}
@@ -57,7 +57,7 @@ const AboutUs = () => {
             <Box w="60%" py="90px">
               <HStack spacing={5} flexDir={isMobile && "column"}>
                 <Box
-                  bgImg={img3}
+                  bgImg={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/salon-interior2.jpg`}
                   p="15rem"
                   bgRepeat={"no-repeat"}
                   bgSize={"cover"}

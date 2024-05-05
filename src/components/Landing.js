@@ -1,7 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import img from "../assets/images/simple-yogo.jpg";
-import img2 from "../assets/images/korede-braids.jpg";
 import img3 from "../assets/images/salon-interior.jpg";
 import img4 from "../assets/images/foundation.jpg";
 import Newsletter from "./Newsletter";
@@ -15,11 +13,13 @@ import {
   Heading,
   HStack,
   useBreakpointValue,
+  Link,
 } from "@chakra-ui/react";
 
 const Landing = () => {
   const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
   const navigate = useNavigate();
+
   return (
     <Box bg="#000" color="white">
       <Box h={!isMobile && "80vh"}>
@@ -35,7 +35,7 @@ const Landing = () => {
                 align="center"
                 bg="grey"
                 h="80vh"
-                bgImg={img}
+                bgImg={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/simple-yogo.jpg`}
                 bgRepeat={"no-repeat"}
                 bgSize={"cover"}
                 pos={"relative"}
@@ -54,14 +54,23 @@ const Landing = () => {
                   <Text fontFamily={"Sacramento"} fontSize="3xl">
                     Treat Your Hair
                   </Text>
-                  <Button> Book Now</Button>
+                  <Button
+                    as={Link}
+                    href="https://appt.link/meet-with-annettes-beauty-spa-92jVHJt1"
+                    target="_blank"
+                    rel="no_opener no_referrer"
+                    style={{ textDecoration: "none" }}
+                    borderRadius={"0"}
+                  >
+                    Book Now
+                  </Button>
                 </VStack>
               </Box>
               <Box
                 align="center"
                 bg="grey"
                 h="80vh"
-                bgImg={img2}
+                bgImg={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/korede-braids.jpg`}
                 bgRepeat={"no-repeat"}
                 bgSize={"cover"}
                 pos={"relative"}
@@ -105,7 +114,17 @@ const Landing = () => {
               relaxing head and foot wash, our skilled team is dedicated to
               providing you with a rejuvenating experience.
             </Text>
-            <Button p="25px">SCHEDULE AN APPOINTMENT</Button>
+            <Button
+              as={Link}
+              href="https://appt.link/meet-with-annettes-beauty-spa-92jVHJt1"
+              target="_blank"
+              rel="no_opener no_referrer"
+              style={{ textDecoration: "none" }}
+              borderRadius={"0"}
+              p="25px"
+            >
+              SCHEDULE AN APPOINTMENT
+            </Button>
           </VStack>
         </Box>
       </Center>
@@ -119,14 +138,20 @@ const Landing = () => {
             <HStack spacing={6}>
               <Box
                 p={{ base: "5rem", md: "7rem", lg: "9rem" }}
-                bgImg={img3}
+                bgImg={
+                  `${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/salon-interior.jpg` ||
+                  img3
+                }
                 bgRepeat="no-repeat"
                 bgSize="cover"
                 bgPos="center"
               ></Box>
               <Box
                 p={{ base: "5rem", md: "7rem", lg: "9rem" }}
-                bgImg={img4}
+                bgImg={
+                  `${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/foundation.jpg` ||
+                  img4
+                }
                 bgRepeat="no-repeat"
                 bgSize="cover"
                 bgPos="center"

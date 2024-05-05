@@ -8,9 +8,6 @@ const giftCardFormSlice = createSlice({
     message: "",
   },
   reducers: {
-    updateId(state, action) {
-      state.id = action.payload;
-    },
     updateRecipientEmail(state, action) {
       state.recipientEmail = action.payload;
     },
@@ -20,6 +17,11 @@ const giftCardFormSlice = createSlice({
     updateMessage(state, action) {
       state.message = action.payload;
     },
+    resetForm(state) {
+      state.recipientEmail = "";
+      state.senderName = "";
+      state.message = "";
+    },
   },
 });
 
@@ -27,7 +29,7 @@ export const {
   updateRecipientEmail,
   updateSenderName,
   updateMessage,
-  updateId,
+  resetForm,
 } = giftCardFormSlice.actions;
 
 export default giftCardFormSlice.reducer;

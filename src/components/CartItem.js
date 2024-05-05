@@ -9,6 +9,7 @@ import {
   Heading,
   HStack,
   Tooltip,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { ChevronUpIcon, ChevronDownIcon, DeleteIcon } from "@chakra-ui/icons";
@@ -21,6 +22,7 @@ import {
 import StaticGiftCard from "./StaticGiftCard";
 
 const CartItem = () => {
+  const isMobile = useBreakpointValue({ base: true, md: false });
   const cart = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
@@ -32,8 +34,8 @@ const CartItem = () => {
         {cart.items.length > 0 ? (
           <Stack spacing={6}>
             {cart.items.map((item) => (
-              <HStack key={item.id}>
-                <HStack>
+              <HStack flexDir={isMobile && "column"} key={item.id}>
+                <HStack w={isMobile ? "70%" : "35%"}>
                   <StaticGiftCard price={item.price} />
                   <Tooltip label="remove item">
                     <Button onClick={() => dispatch(removeFromCart(item.id))}>
@@ -42,38 +44,40 @@ const CartItem = () => {
                   </Tooltip>
                 </HStack>
                 <Spacer />
-                <Box w="100%" display="flex" justifyContent="center">
-                  <VStack w="50%" spacing={0} alignItems="start">
-                    <Text>
-                      <span style={{ fontWeight: "bold", fontSize: "large" }}>
-                        Recipient:
-                      </span>{" "}
-                      {item.recipientEmail}
-                    </Text>
-                    <Text>
-                      <span style={{ fontWeight: "bold", fontSize: "large" }}>
-                        Sender:
-                      </span>{" "}
-                      {item.senderName}
-                    </Text>
-                    <Text>
-                      <span style={{ fontWeight: "bold", fontSize: "large" }}>
-                        Message:
-                      </span>{" "}
-                      {item.message}
-                    </Text>
-                  </VStack>
-                </Box>
-                <Spacer />
-                <Box>
-                  <Button onClick={() => dispatch(increaseAmount(item.id))}>
-                    <ChevronUpIcon />
-                  </Button>
-                  <Text align="center">{item.quantity}</Text>
-                  <Button onClick={() => dispatch(decreaseAmount(item.id))}>
-                    <ChevronDownIcon />
-                  </Button>
-                </Box>
+                <HStack w={isMobile ? "80%" : "50%"}>
+                  <Box w="100%" display="flex" justifyContent="center">
+                    <VStack w="100%" spacing={0} alignItems="start">
+                      <Text>
+                        <span style={{ fontWeight: "bold", fontSize: "large" }}>
+                          Recipient:
+                        </span>{" "}
+                        {item.recipientEmail}
+                      </Text>
+                      <Text>
+                        <span style={{ fontWeight: "bold", fontSize: "large" }}>
+                          Sender:
+                        </span>{" "}
+                        {item.senderName}
+                      </Text>
+                      <Text>
+                        <span style={{ fontWeight: "bold", fontSize: "large" }}>
+                          Message:
+                        </span>{" "}
+                        {item.message}
+                      </Text>
+                    </VStack>
+                  </Box>
+                  <Spacer />
+                  <Box>
+                    <Button onClick={() => dispatch(increaseAmount(item.id))}>
+                      <ChevronUpIcon />
+                    </Button>
+                    <Text align="center">{item.quantity}</Text>
+                    <Button onClick={() => dispatch(decreaseAmount(item.id))}>
+                      <ChevronDownIcon />
+                    </Button>
+                  </Box>
+                </HStack>
               </HStack>
             ))}
           </Stack>

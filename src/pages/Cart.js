@@ -8,15 +8,16 @@ import {
   Button,
   Stack,
   HStack,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import SharedLayout from "./SharedLayout";
 import { CartItem, PageHeadingBox } from "../components";
 import { useSelector, useDispatch } from "react-redux";
-import img from "../assets/images/spa-room.jpg";
 import { clearCart } from "../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const isMobile = useBreakpointValue({ base: true, md: false });
   const { total } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,14 +25,22 @@ const Cart = () => {
     <SharedLayout>
       <Center>
         <VStack w="100%">
-          <PageHeadingBox img={img} title="Review Your Cart & Checkout" />
+          <PageHeadingBox
+            img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/spa-room.jpg`}
+            title="Review Your Cart"
+          />
           <Box w="70%">
             <Box border="1px solid white" p="10px">
               <CartItem />
             </Box>
             {total > 0 && (
               <>
-                <Stack flexDir="row" justifyContent="space-between" py="20px">
+                <Stack
+                  flexDir={isMobile ? "column" : "row"}
+                  justifyContent="space-between"
+                  py="20px"
+                  spacing={9}
+                >
                   <Box>
                     <Button onClick={() => navigate("/gift-cards")}>
                       Continue Shopping

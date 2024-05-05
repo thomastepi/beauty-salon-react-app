@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Center, VStack, Button, HStack } from "@chakra-ui/react";
-import img from "../assets/images/spa-natural-background.jpg";
 import SharedLayout from "./SharedLayout";
 import { PageHeadingBox, HairServices, SpaServices } from "../components";
 
@@ -23,7 +22,7 @@ const Services = () => {
         <VStack w="100%">
           <PageHeadingBox
             title="Relax, Rejuvenate, and Beautify: Our Services Await"
-            img={img}
+            img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/spa-natural-background.jpg`}
           />
           <Center py="50px">
             <VStack spacing={6} align="center">
