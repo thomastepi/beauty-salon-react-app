@@ -78,7 +78,7 @@ const Product = () => {
                   <Box w="100%">
                     <form>
                       <FormControl mt="15px" isRequired id="name">
-                        <FormLabel>Recipient</FormLabel>
+                        <FormLabel>Recipient Email</FormLabel>
                         <Input
                           borderRadius={0}
                           placeholder="Enter Recipient Email"
