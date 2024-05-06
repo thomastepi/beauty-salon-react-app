@@ -10,7 +10,7 @@ import GiftCard from "./GiftCard";
 import GoogleMaps from "./GoogleMaps";
 import CartItem from "./CartItem";
 import StaticGiftCard from "./StaticGiftCard";
-import BillingInfo from "./BillingInfo";
+import ScrollToTop from "./ScrollToTop";
 
 export {
   Landing,
@@ -25,5 +25,5 @@ export {
   GoogleMaps,
   CartItem,
   StaticGiftCard,
-  BillingInfo,
+  ScrollToTop,
 };

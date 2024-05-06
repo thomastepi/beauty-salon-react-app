@@ -58,7 +58,7 @@ const Product = () => {
         <Center>
           <VStack w="100%">
             <PageHeadingBox
-              img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/black-braids.jpg`}
+              img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/smiling-mary.jpg`}
               title="Personalize Your Gift Card"
             />
             <Grid

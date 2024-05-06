@@ -12,7 +12,7 @@ const Gallery = () => {
       <Center>
         <VStack w="100%">
           <PageHeadingBox
-            img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/salon-interior.jpg`}
+            img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/hair-dresser.jpg`}
             title="The Art of Hair: A Visual Inspiration"
           />
           <Heading w="80%" align="center" size="lg" pb="75px">

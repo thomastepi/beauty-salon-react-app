@@ -11,8 +11,14 @@ import {
   Button,
   useToast,
   useBreakpointValue,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
 } from "@chakra-ui/react";
-import { BillingInfo, PageHeadingBox, StaticGiftCard } from "../components";
+import { PageHeadingBox, StaticGiftCard } from "../components";
 import { useSelector } from "react-redux";
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -68,17 +74,37 @@ const Checkout = () => {
         <Center>
           <VStack w="100%">
             <PageHeadingBox
-              img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/smiling-mary.jpg`}
+              img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/loose-braids.jpg`}
               title="Checkout"
             />
             <Grid
               templateColumns={isMobile ? "repeat(1, 1fr)" : "repeat(2, 1fr)"}
               gap={9}
+              w="80%"
             >
-              <BillingInfo />
               <Box>
-                <VStack spacing={5} border="1px solid white" p="10px">
-                  <Heading>Your Order</Heading>
+                <Table>
+                  <Thead>
+                    <Tr>
+                      <Th textAlign="center">Recipient</Th>
+                      <Th textAlign="center">Quantity</Th>
+                      <Th textAlign="center">Price</Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    {cart.items.map((item) => (
+                      <Tr key={item.id}>
+                        <Td textAlign="center">{item.recipientEmail}</Td>
+                        <Td textAlign="center">{item.quantity}</Td>
+                        <Td textAlign="center">${item.price}</Td>
+                      </Tr>
+                    ))}
+                  </Tbody>
+                </Table>
+              </Box>
+              <Box>
+                <VStack spacing={5} border="1px solid white" p="30px">
+                  <Heading>Order Summary</Heading>
                   <VStack spacing={5}>
                     {cart.items.map((item) => (
                       <>
@@ -97,13 +123,18 @@ const Checkout = () => {
                     <Heading size="md">Total Amount:</Heading>
                     <Text>${cart.total}</Text>
                   </HStack>
-                  <Button
-                    w="90%"
-                    isLoading={isLoading}
-                    onClick={() => makePayment()}
-                  >
-                    Pay
-                  </Button>
+                  <VStack spacing={0} mt="50px">
+                    <Button
+                      px="10rem"
+                      isLoading={isLoading}
+                      onClick={() => makePayment()}
+                    >
+                      Pay Now
+                    </Button>
+                    <span style={{ fontStyle: "italic" }}>
+                      (Secured by Stripe)
+                    </span>
+                  </VStack>
                 </VStack>
               </Box>
             </Grid>

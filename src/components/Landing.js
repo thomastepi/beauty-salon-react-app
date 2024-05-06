@@ -35,7 +35,7 @@ const Landing = () => {
                 align="center"
                 bg="grey"
                 h="80vh"
-                bgImg={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/simple-yogo.jpg`}
+                bgImg={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/godisable.jpg`}
                 bgRepeat={"no-repeat"}
                 bgSize={"cover"}
                 pos={"relative"}
@@ -70,7 +70,7 @@ const Landing = () => {
                 align="center"
                 bg="grey"
                 h="80vh"
-                bgImg={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/korede-braids.jpg`}
+                bgImg={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/bone-straight.jpg`}
                 bgRepeat={"no-repeat"}
                 bgSize={"cover"}
                 pos={"relative"}

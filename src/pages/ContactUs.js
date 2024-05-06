@@ -23,7 +23,10 @@ const ContactUs = () => {
       <SharedLayout>
         <Center>
           <VStack w="100%">
-            <PageHeadingBox img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/afro.jpg`} title="We'd love to hear from you!" />
+            <PageHeadingBox
+              img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/posing-together.jpg`}
+              title="We'd love to hear from you!"
+            />
             <HStack
               spacing={9}
               w={isMobile ? "80%" : "40%"}
