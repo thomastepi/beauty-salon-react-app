@@ -27,10 +27,11 @@ const Cancel = () => {
           Payment Cancelled
         </AlertTitle>
         <AlertDescription maxWidth="sm">
-          We encountered an error processing your payment.
+          Your transaction was canceled. You can return to the cart to try
+          again.
         </AlertDescription>
-        <Button onClick={() => navigate("/gift-cards")} py="10px" mt="5px">
-          Return to Shop
+        <Button onClick={() => navigate("/cart")} py="10px" mt="5px">
+          Return to Cart
         </Button>
       </Alert>
     </Center>

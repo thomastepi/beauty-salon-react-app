@@ -29,17 +29,17 @@ const Checkout = () => {
   const toast = useToast();
 
   const makePayment = async () => {
+    setIsLoading(true);
+    const stripe = await loadStripe(
+      process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
+    );
+    const body = {
+      items: cart.items,
+    };
+    const headers = {
+      "Content-Type": "application/json",
+    };
     try {
-      setIsLoading(true);
-      const stripe = await loadStripe(
-        process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
-      );
-      const body = {
-        items: cart.items,
-      };
-      const headers = {
-        "Content-Type": "application/json",
-      };
       const response = await fetch(
         `${process.env.REACT_APP_BASE_URL}/api/create-checkout-session`,
         {
@@ -49,22 +49,30 @@ const Checkout = () => {
         }
       );
       const session = await response.json();
-      await stripe.redirectToCheckout({
+      const result = await stripe.redirectToCheckout({
         sessionId: session.id,
       });
-      setIsLoading(false);
-    } catch (error) {
-      if (error) {
+      if (result.error) {
         toast({
-          title: "An error occurred.",
-          description: "Please try again later.",
+          title: "Checkout failed.",
+          description: result.error.message,
           status: "error",
           duration: 9000,
           isClosable: true,
           position: "top",
         });
       }
+    } catch (error) {
+      toast({
+        title: "An error occurred.",
+        description: "Please try again later.",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+        position: "top",
+      });
       console.error("Error:", error);
+    } finally {
       setIsLoading(false);
     }
   };
@@ -107,12 +115,10 @@ const Checkout = () => {
                   <Heading>Order Summary</Heading>
                   <VStack spacing={5}>
                     {cart.items.map((item) => (
-                      <>
-                        <HStack spacing={4} key={item.id}>
-                          <StaticGiftCard price={item.price} />
-                          <Text as="b">x{item.quantity}</Text>
-                        </HStack>
-                      </>
+                      <HStack spacing={4} key={item.id}>
+                        <StaticGiftCard price={item.price} />
+                        <Text as="b">x{item.quantity}</Text>
+                      </HStack>
                     ))}
                   </VStack>
                   <HStack w="50%" justify={"space-between"}>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Alert,
@@ -8,9 +8,16 @@ import {
   Center,
   Button,
 } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { clearCart } from "../features/cart/cartSlice";
 
 const Success = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clearCart());
+  }, [dispatch]);
 
   return (
     <Center bg="#092635" h="100vh">
@@ -31,8 +38,8 @@ const Success = () => {
           Your gift card has been successfully delivered to the recipient's
           email address. They'll be delighted to receive this thoughtful gift.
         </AlertDescription>
-        <Button onClick={() => navigate("/gift-cards")} py="10px" mt="5px">
-          Return to Shop
+        <Button onClick={() => navigate("/")} py="10px" mt="5px">
+          Return to Home
         </Button>
       </Alert>
     </Center>
