@@ -27,7 +27,7 @@ const Cancel = () => {
           Payment Cancelled
         </AlertTitle>
         <AlertDescription maxWidth="sm">
-          Your transaction was canceled. You can return to the cart to try
+          Your transaction was cancelled. You can return to the cart to try
           again.
         </AlertDescription>
         <Button onClick={() => navigate("/cart")} py="10px" mt="5px">
