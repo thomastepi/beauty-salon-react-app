@@ -17,7 +17,7 @@ const GiftCardPage = () => {
           <Center w="80%">
             <Grid
               templateColumns={
-                isMobile ? "repeat(1, 1fr)" : "repeat(1, 1fr 1fr 1fr)"
+                isMobile ? "repeat(1, 1fr)" : "repeat(1, 1fr 1fr)"
               }
               gap={"12"}
             >

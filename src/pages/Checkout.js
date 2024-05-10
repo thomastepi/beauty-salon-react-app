@@ -24,7 +24,7 @@ import { loadStripe } from "@stripe/stripe-js";
 
 const Checkout = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const isMobile = useBreakpointValue({ base: true, md: false });
+  const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
   const cart = useSelector((state) => state.cart);
   const toast = useToast();
 
@@ -76,6 +76,7 @@ const Checkout = () => {
       setIsLoading(false);
     }
   };
+
   return (
     <>
       <SharedLayout>
@@ -85,65 +86,67 @@ const Checkout = () => {
               img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/loose-braids.jpg`}
               title="Checkout"
             />
-            <Grid
-              templateColumns={isMobile ? "repeat(1, 1fr)" : "repeat(2, 1fr)"}
-              gap={9}
-              w="80%"
-            >
-              <Box>
-                <Table>
-                  <Thead>
-                    <Tr>
-                      <Th textAlign="center">Recipient</Th>
-                      <Th textAlign="center">Quantity</Th>
-                      <Th textAlign="center">Price</Th>
-                    </Tr>
-                  </Thead>
-                  <Tbody>
-                    {cart.items.map((item) => (
-                      <Tr key={item.id}>
-                        <Td textAlign="center">{item.recipientEmail}</Td>
-                        <Td textAlign="center">{item.quantity}</Td>
-                        <Td textAlign="center">${item.price}</Td>
+            <Center w="80%">
+              <Grid
+                templateColumns={isMobile ? "repeat(1, 1fr)" : "repeat(2, 1fr)"}
+                gap={9}
+                //w="80%"
+              >
+                <Box>
+                  <Table>
+                    <Thead>
+                      <Tr>
+                        <Th textAlign="center">Recipient</Th>
+                        <Th textAlign="center">Quantity</Th>
+                        <Th textAlign="center">Gift Card</Th>
                       </Tr>
-                    ))}
-                  </Tbody>
-                </Table>
-              </Box>
-              <Box>
-                <VStack spacing={5} border="1px solid white" p="30px">
-                  <Heading>Order Summary</Heading>
-                  <VStack spacing={5}>
-                    {cart.items.map((item) => (
-                      <HStack spacing={4} key={item.id}>
-                        <StaticGiftCard price={item.price} />
-                        <Text as="b">x{item.quantity}</Text>
-                      </HStack>
-                    ))}
+                    </Thead>
+                    <Tbody>
+                      {cart.items.map((item) => (
+                        <Tr key={item.id}>
+                          <Td textAlign="center">{item.recipientEmail}</Td>
+                          <Td textAlign="center">{item.quantity}</Td>
+                          <Td textAlign="center">${item.price}</Td>
+                        </Tr>
+                      ))}
+                    </Tbody>
+                  </Table>
+                </Box>
+                <Box>
+                  <VStack spacing={5} border="1px solid white" p="20px">
+                    <Heading>Order Summary</Heading>
+                    <VStack spacing={5}>
+                      {cart.items.map((item) => (
+                        <HStack spacing={4} key={item.id}>
+                          <StaticGiftCard price={item.price} />
+                          <Text as="b">x{item.quantity}</Text>
+                        </HStack>
+                      ))}
+                    </VStack>
+                    <HStack w="50%" justify={"space-between"}>
+                      <Heading size="md">Sub Total:</Heading>
+                      <Text>${cart.total}</Text>
+                    </HStack>
+                    <HStack w="50%" justify={"space-between"}>
+                      <Heading size="md">Total Amount:</Heading>
+                      <Text>${cart.total}</Text>
+                    </HStack>
+                    <VStack spacing={0} mt="50px">
+                      <Button
+                        px="10rem"
+                        isLoading={isLoading}
+                        onClick={() => makePayment()}
+                      >
+                        Pay Now
+                      </Button>
+                      <span style={{ fontStyle: "italic" }}>
+                        (Secured by Stripe)
+                      </span>
+                    </VStack>
                   </VStack>
-                  <HStack w="50%" justify={"space-between"}>
-                    <Heading size="md">Sub Total:</Heading>
-                    <Text>${cart.total}</Text>
-                  </HStack>
-                  <HStack w="50%" justify={"space-between"}>
-                    <Heading size="md">Total Amount:</Heading>
-                    <Text>${cart.total}</Text>
-                  </HStack>
-                  <VStack spacing={0} mt="50px">
-                    <Button
-                      px="10rem"
-                      isLoading={isLoading}
-                      onClick={() => makePayment()}
-                    >
-                      Pay Now
-                    </Button>
-                    <span style={{ fontStyle: "italic" }}>
-                      (Secured by Stripe)
-                    </span>
-                  </VStack>
-                </VStack>
-              </Box>
-            </Grid>
+                </Box>
+              </Grid>
+            </Center>
           </VStack>
         </Center>
       </SharedLayout>

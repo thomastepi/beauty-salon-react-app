@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../utils/products";
 import {
@@ -13,6 +13,7 @@ import {
   Input,
   Textarea,
   FormLabel,
+  FormHelperText,
   Button,
   useToast,
 } from "@chakra-ui/react";
@@ -28,6 +29,7 @@ import {
 } from "../features/giftCard/giftCardFormSlice";
 
 const Product = () => {
+  const [charCount, setCharCount] = useState(0);
   const toast = useToast();
   const { productId } = useParams();
   const parsedProductId = parseInt(productId);
@@ -107,10 +109,14 @@ const Product = () => {
                           borderRadius={0}
                           placeholder="Add a Message (Optional)"
                           value={cardFormData.message}
-                          onChange={(e) =>
-                            dispatch(updateMessage(e.target.value))
-                          }
+                          onChange={(e) => {
+                            dispatch(updateMessage(e.target.value));
+                            setCharCount(e.target.value.length);
+                          }}
                         />
+                        <FormHelperText>
+                          {charCount}/100 characters
+                        </FormHelperText>
                       </FormControl>
                     </form>
                   </Box>

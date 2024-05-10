@@ -63,7 +63,7 @@ const CartItem = () => {
                         <span style={{ fontWeight: "bold", fontSize: "large" }}>
                           Message:
                         </span>{" "}
-                        {item.message}
+                        {item.message || "N/A"}
                       </Text>
                     </VStack>
                   </Box>
@@ -72,7 +72,9 @@ const CartItem = () => {
                     <Button onClick={() => dispatch(increaseAmount(item.id))}>
                       <ChevronUpIcon />
                     </Button>
-                    <Text align="center">{item.quantity}</Text>
+                    <Text py="6px" align="center">
+                      Qty: {item.quantity}
+                    </Text>
                     <Button onClick={() => dispatch(decreaseAmount(item.id))}>
                       <ChevronDownIcon />
                     </Button>
