@@ -29,6 +29,8 @@ const Success = () => {
         justifyContent="center"
         textAlign="center"
         w="50%"
+        bg="#31363F"
+        color="white"
       >
         <AlertIcon boxSize="40px" mr={0} />
         <AlertTitle mt={4} mb={1} fontSize="lg">
@@ -38,7 +40,7 @@ const Success = () => {
           Your gift card has been successfully delivered to the recipient's
           email address. They'll be delighted to receive this thoughtful gift.
         </AlertDescription>
-        <Button onClick={() => navigate("/")} py="10px" mt="5px">
+        <Button onClick={() => navigate("/")} py="10px" mt="20px">
           Return to Home
         </Button>
       </Alert>

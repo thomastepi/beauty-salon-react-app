@@ -20,6 +20,8 @@ const Cancel = () => {
         alignItems="center"
         justifyContent="center"
         textAlign="center"
+        bg="#31363F"
+        color="white"
         w="50%"
       >
         <AlertIcon boxSize="40px" mr={0} />
@@ -30,7 +32,7 @@ const Cancel = () => {
           Your transaction was cancelled. You can return to the cart to try
           again.
         </AlertDescription>
-        <Button onClick={() => navigate("/cart")} py="10px" mt="5px">
+        <Button onClick={() => navigate("/cart")} py="10px" mt="25px">
           Return to Cart
         </Button>
       </Alert>
