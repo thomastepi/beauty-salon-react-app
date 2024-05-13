@@ -35,6 +35,7 @@ const ContactUs = () => {
       message: Yup.string().required("Required"),
     }),
     onSubmit: (values) => {
+      setAlert(false);
       setIsLoading(true);
       setTimeout(() => {
         setAlert(true);
@@ -144,8 +145,9 @@ const ContactUs = () => {
                     colorScheme="whiteAlpha"
                     type="submit"
                     disabled={isLoading}
+                    isLoading={isLoading}
                   >
-                    {isLoading ? "Sending..." : "Send Message"}
+                    Send Message
                   </Button>
                 </VStack>
               </form>

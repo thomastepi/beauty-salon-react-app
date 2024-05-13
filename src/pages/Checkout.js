@@ -90,7 +90,6 @@ const Checkout = () => {
               <Grid
                 templateColumns={isMobile ? "repeat(1, 1fr)" : "repeat(2, 1fr)"}
                 gap={9}
-                //w="80%"
               >
                 <Box>
                   <Table>

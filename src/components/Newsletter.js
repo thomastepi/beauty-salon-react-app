@@ -23,6 +23,7 @@ const Newsletter = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setAlert(false);
     setIsLoading(true);
     setTimeout(() => {
       setAlert(true);
@@ -49,8 +50,12 @@ const Newsletter = () => {
                     borderRadius="none"
                     type="email"
                   />
-                  <Button disabled={isLoading} type="submit">
-                    {isLoading ? "Sending..." : "Subscribe"}
+                  <Button
+                    isLoading={isLoading}
+                    disabled={isLoading}
+                    type="submit"
+                  >
+                    Subscribe
                   </Button>
                 </HStack>
                 <FormHelperText align={isMobile && "center"}>
