@@ -20,9 +20,9 @@ const LocServices = () => {
               <Td>Sisterlocks</Td>
               <Td whiteSpace="normal" wordBreak="break-word">
                 Creates small, permanent locs for low-maintenance style. (Price
-                varies based on hair length and desired loc size)
+                varies based on hair length and desired loc size - CFA
+                50,000frs)
               </Td>
-              <Td>$200+</Td>
             </Tr>
           </Tbody>
           <Tbody>
@@ -30,25 +30,22 @@ const LocServices = () => {
               <Td>Traditional Loc Start-up</Td>
               <Td whiteSpace="normal" wordBreak="break-word">
                 Creates new locs using the interlocking method. (Price varies
-                based on hair length and desired loc size)
+                based on hair length and desired loc size - CFA 30,000frs)
               </Td>
-              <Td>$150+</Td>
             </Tr>
             <Tr>
               <Td>Loc Retwist</Td>
               <Td whiteSpace="normal" wordBreak="break-word">
                 Tightens and maintains existing locs. (Price varies based on loc
-                length and density)
+                length and density - CFA 20,000frs)
               </Td>
-              <Td>$50+</Td>
             </Tr>
             <Tr>
               <Td>Loc Detox</Td>
               <Td whiteSpace="normal" wordBreak="break-word">
                 Removes build-up and promotes healthy scalp. (Price varies based
-                on loc length and density)
+                on loc length and density - CFA 20,000frs)
               </Td>
-              <Td>$40+</Td>
             </Tr>
           </Tbody>
           <Tbody>
@@ -56,9 +53,8 @@ const LocServices = () => {
               <Td>Loc Jewelry Installation</Td>
               <Td whiteSpace="normal" wordBreak="break-word">
                 Personalize your locs with decorative accents. (Price varies
-                based on complexity)
+                based on complexity - CFA 10,000frs)
               </Td>
-              <Td>$40+</Td>
             </Tr>
           </Tbody>
         </Table>

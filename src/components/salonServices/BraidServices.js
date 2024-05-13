@@ -20,9 +20,8 @@ const BraidServices = () => {
               <Td>Njangala Cornrows</Td>
               <Td whiteSpace="normal" wordBreak="break-word">
                 Classic cornrows in various styles and patterns. (Price varies
-                based on length and complexity)
+                based on length and complexity - CFA 10,000frs){" "}
               </Td>
-              <Td>$80+</Td>
             </Tr>
           </Tbody>
           <Tbody>
@@ -30,25 +29,23 @@ const BraidServices = () => {
               <Td>Fulani Braids</Td>
               <Td whiteSpace="normal" wordBreak="break-word">
                 Intricate braided style with intricate details and cowrie shells
-                (optional). (Price varies based on length and complexity)
+                (optional). (Price varies based on length and complexity - CFA
+                15,000frs){" "}
               </Td>
-              <Td>$50+</Td>
             </Tr>
             <Tr>
               <Td>Plaited Braids</Td>
               <Td whiteSpace="normal" wordBreak="break-word">
                 Braided hairstyle styled into an elegant updo. (Price varies
-                based on length and complexity)
+                based on length and complexity - CFA 15,000frs){" "}
               </Td>
-              <Td>$100+</Td>
             </Tr>
             <Tr>
               <Td>Goddess Faux Locs</Td>
               <Td whiteSpace="normal" wordBreak="break-word">
                 Temporary loc extensions for a protective and stylish look.
-                (Price varies based on length and desired style)
+                (Price varies based on length and desired style - CFA 20,000frs){" "}
               </Td>
-              <Td>$150+</Td>
             </Tr>
           </Tbody>
           <Tbody>
@@ -56,9 +53,8 @@ const BraidServices = () => {
               <Td>Box Braids</Td>
               <Td whiteSpace="normal" wordBreak="break-word">
                 Offered in various lengths and thicknesses. (Price varies based
-                on length and desired thickness)
+                on length and desired thickness - CFA 20,000frs){" "}
               </Td>
-              <Td>$80+</Td>
             </Tr>
           </Tbody>
         </Table>

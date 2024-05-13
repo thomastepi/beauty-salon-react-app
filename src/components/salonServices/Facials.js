@@ -21,9 +21,8 @@ const Facials = () => {
               <Td whiteSpace="normal" wordBreak="break-word">
                 This luxurious facial uses French skincare products to deeply
                 cleanse, exfoliate, and hydrate your skin. Includes a facial
-                massage and mask.
+                massage and mask. (CFA 15,000frs)
               </Td>
-              <Td isNumeric>{"$"}120</Td>
             </Tr>
           </Tbody>
           <Tbody>
@@ -32,9 +31,8 @@ const Facials = () => {
               <Td whiteSpace="normal" wordBreak="break-word">
                 A facial designed specifically for men's skin. Includes a deep
                 cleanse, exfoliation, and hydrating mask to leave skin feeling
-                refreshed and invigorated.
+                refreshed and invigorated. (CFA 10,000frs)
               </Td>
-              <Td isNumeric>{"$"}150</Td>
             </Tr>
           </Tbody>
         </Table>

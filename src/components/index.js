@@ -11,6 +11,7 @@ import GoogleMaps from "./GoogleMaps";
 import CartItem from "./CartItem";
 import StaticGiftCard from "./StaticGiftCard";
 import ScrollToTop from "./ScrollToTop";
+import AlertBox from "./AlertBox";
 
 export {
   Landing,
@@ -26,4 +27,5 @@ export {
   CartItem,
   StaticGiftCard,
   ScrollToTop,
+  AlertBox,
 };

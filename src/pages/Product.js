@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../utils/products";
 import {
@@ -15,44 +15,42 @@ import {
   FormLabel,
   FormHelperText,
   Button,
-  useToast,
 } from "@chakra-ui/react";
 import { PageHeadingBox, StaticGiftCard } from "../components";
 import SharedLayout from "./SharedLayout";
 import { addToCart } from "../features/cart/cartSlice";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  updateRecipientEmail,
-  updateSenderName,
-  updateMessage,
-  resetForm,
-} from "../features/giftCard/giftCardFormSlice";
+import { useDispatch } from "react-redux";
+import { resetForm } from "../features/giftCard/giftCardFormSlice";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const Product = () => {
-  const [charCount, setCharCount] = useState(0);
-  const toast = useToast();
   const { productId } = useParams();
   const parsedProductId = parseInt(productId);
   const product = products.find((product) => product.id === parsedProductId);
 
-  const cardFormData = useSelector((state) => state.giftCardForm);
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleAddToCart = () => {
-    if (!cardFormData.recipientEmail || !cardFormData.senderName) {
-      toast({
-        description: "Please fill out the recipient and sender fields",
-        status: "error",
-        position: "top",
-      });
-      return;
-    }
-    dispatch(addToCart({ ...product, ...cardFormData }));
-    dispatch(resetForm());
-    navigate("/cart");
-  };
+  const formik = useFormik({
+    initialValues: {
+      recipientEmail: "",
+      senderName: "",
+      message: "",
+    },
+    validationSchema: Yup.object({
+      recipientEmail: Yup.string()
+        .email("Invalid email address")
+        .required("Required"),
+      senderName: Yup.string().required("Required"),
+      message: Yup.string().max(99, "Must be 100 characters or less"),
+    }),
+    onSubmit: (values) => {
+      dispatch(addToCart({ ...product, ...values }));
+      dispatch(resetForm());
+      navigate("/cart");
+    },
+  });
 
   return (
     <>
@@ -78,51 +76,76 @@ const Product = () => {
                   <Heading>${product.price} Gift Card</Heading>
                   <Text>${product.price}</Text>
                   <Box w="100%">
-                    <form>
-                      <FormControl mt="15px" isRequired id="name">
-                        <FormLabel>Recipient Email</FormLabel>
-                        <Input
-                          borderRadius={0}
-                          placeholder="Enter Recipient Email"
-                          type="email"
-                          value={cardFormData.recipientEmail}
-                          onChange={(e) =>
-                            dispatch(updateRecipientEmail(e.target.value))
+                    <form onSubmit={formik.handleSubmit}>
+                      <VStack alignItems="start">
+                        <FormControl
+                          isRequired
+                          isInvalid={
+                            formik.touched.recipientEmail &&
+                            formik.errors.recipientEmail
                           }
-                        />
-                      </FormControl>
-                      <FormControl mt="15px" isRequired id="email">
-                        <FormLabel>From</FormLabel>
-                        <Input
-                          borderRadius={0}
-                          placeholder="Enter Your Name"
-                          type="text"
-                          value={cardFormData.senderName}
-                          onChange={(e) =>
-                            dispatch(updateSenderName(e.target.value))
+                        >
+                          <FormLabel>Recipient Email</FormLabel>
+                          <Input
+                            id="recipientEmail"
+                            name="recipientEmail"
+                            {...formik.getFieldProps("recipientEmail")}
+                            borderRadius={0}
+                            placeholder="Enter Recipient Email"
+                            type="email"
+                          />
+                          <FormHelperText color="red">
+                            {formik.errors.recipientEmail}
+                          </FormHelperText>
+                        </FormControl>
+                        <FormControl
+                          isRequired
+                          isInvalid={
+                            formik.touched.senderName &&
+                            formik.errors.senderName
                           }
-                        />
-                      </FormControl>
-                      <FormControl mt="15px" id="message">
-                        <FormLabel>Message</FormLabel>
-                        <Textarea
-                          borderRadius={0}
-                          placeholder="Add a Message (Optional)"
-                          value={cardFormData.message}
-                          onChange={(e) => {
-                            dispatch(updateMessage(e.target.value));
-                            setCharCount(e.target.value.length);
-                          }}
-                        />
-                        <FormHelperText>
-                          {charCount}/100 characters
-                        </FormHelperText>
-                      </FormControl>
+                        >
+                          <FormLabel>From</FormLabel>
+                          <Input
+                            name="senderName"
+                            id="senderName"
+                            {...formik.getFieldProps("senderName")}
+                            borderRadius={0}
+                            placeholder="Enter Your Name"
+                            type="text"
+                          />
+                          <FormHelperText color="red">
+                            {formik.errors.senderName}
+                          </FormHelperText>
+                        </FormControl>
+                        <FormControl
+                          isInvalid={
+                            formik.touched.message && formik.errors.message
+                          }
+                        >
+                          <FormLabel>Message</FormLabel>
+                          <Textarea
+                            name="message"
+                            id="message"
+                            {...formik.getFieldProps("message")}
+                            borderRadius={0}
+                            placeholder="Add a Message (Optional)"
+                            maxLength={100}
+                            value={formik.values.message}
+                          />
+                          <FormHelperText>
+                            {formik.values.message.length}/100 characters
+                          </FormHelperText>
+                          <FormHelperText color="red">
+                            {formik.errors.message}
+                          </FormHelperText>
+                        </FormControl>
+                        <Button type="submit" size="lg">
+                          Add to Cart
+                        </Button>
+                      </VStack>
                     </form>
                   </Box>
-                  <Button onClick={handleAddToCart} size="lg">
-                    Add to Cart
-                  </Button>
                 </VStack>
               </Box>
             </Grid>

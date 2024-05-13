@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import SharedLayout from "./SharedLayout";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import {
   Box,
   Heading,
@@ -10,14 +12,37 @@ import {
   Center,
   VStack,
   FormControl,
+  FormHelperText,
   HStack,
   Stack,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { PageHeadingBox, GoogleMaps } from "../components";
+import { PageHeadingBox, GoogleMaps, AlertBox } from "../components";
 
 const ContactUs = () => {
+  const [alert, setAlert] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      message: "",
+    },
+    validationSchema: Yup.object({
+      name: Yup.string().required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      message: Yup.string().required("Required"),
+    }),
+    onSubmit: (values) => {
+      setIsLoading(true);
+      setTimeout(() => {
+        setAlert(true);
+        formik.resetForm();
+        setIsLoading(false);
+      }, 2000);
+    },
+  });
   return (
     <>
       <SharedLayout>
@@ -62,43 +87,78 @@ const ContactUs = () => {
                 Have a question, comment, or concern? Fill out the form below
                 and we'll get back to you as soon as possible.
               </Text>
-              <form>
-                <FormControl>
-                  <Input
-                    type="text"
-                    placeholder="Your Name"
-                    mb="4"
-                    focusBorderColor="white"
-                    borderRadius="0"
-                    borderStyle="none none solid none"
-                    _focus={{ borderStyle: "solid" }}
-                  />
-                </FormControl>
-                <FormControl>
-                  <Input
-                    type="email"
-                    placeholder="Your Email"
-                    mb="4"
-                    focusBorderColor="white"
-                    borderRadius="0"
-                    borderStyle="none none solid none"
-                    _focus={{ borderStyle: "solid" }}
-                  />
-                </FormControl>
-                <FormControl>
-                  <Textarea
-                    placeholder="Your Message"
-                    mb="4"
-                    focusBorderColor="white"
-                    borderRadius="0"
-                    borderStyle="none none solid none"
-                    _focus={{ borderStyle: "solid" }}
-                  />
-                </FormControl>
-                <Button w="full" colorScheme="whiteAlpha" type="submit">
-                  Send Message
-                </Button>
+              <form onSubmit={formik.handleSubmit}>
+                <VStack>
+                  <FormControl
+                    isInvalid={formik.touched.name && formik.errors.name}
+                  >
+                    <Input
+                      {...formik.getFieldProps("name")}
+                      name="name"
+                      type="text"
+                      placeholder="Your Name"
+                      focusBorderColor="white"
+                      borderRadius="0"
+                      borderStyle="none none solid none"
+                      _focus={{ borderStyle: "solid" }}
+                    />
+                    <FormHelperText color="red">
+                      {formik.errors.name}
+                    </FormHelperText>
+                  </FormControl>
+                  <FormControl
+                    isInvalid={formik.touched.email && formik.errors.email}
+                  >
+                    <Input
+                      {...formik.getFieldProps("email")}
+                      name="email"
+                      type="email"
+                      placeholder="Your Email"
+                      focusBorderColor="white"
+                      borderRadius="0"
+                      borderStyle="none none solid none"
+                      _focus={{ borderStyle: "solid" }}
+                    />
+                    <FormHelperText color="red">
+                      {formik.errors.email}
+                    </FormHelperText>
+                  </FormControl>
+                  <FormControl
+                    isInvalid={formik.touched.message && formik.errors.message}
+                  >
+                    <Textarea
+                      {...formik.getFieldProps("message")}
+                      name="message"
+                      placeholder="Your Message"
+                      focusBorderColor="white"
+                      borderRadius="0"
+                      borderStyle="none none solid none"
+                      _focus={{ borderStyle: "solid" }}
+                    />
+                    <FormHelperText color="red">
+                      {formik.errors.message}
+                    </FormHelperText>
+                  </FormControl>
+                  <Button
+                    w="full"
+                    colorScheme="whiteAlpha"
+                    type="submit"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Sending..." : "Send Message"}
+                  </Button>
+                </VStack>
               </form>
+              {alert && (
+                <Box mt="15px" w={!isMobile && "70%"}>
+                  <AlertBox
+                    setAlert={setAlert}
+                    status="success"
+                    title="Success!"
+                    description="Your message has been received. We will respond within the next 48 hours."
+                  />
+                </Box>
+              )}
             </Stack>
           </VStack>
         </Center>
