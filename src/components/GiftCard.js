@@ -39,7 +39,7 @@ const GiftCard = ({ price, id }) => {
           <CardBody align="center">
             <Stack mt="6" spacing="4">
               <HStack>
-                <Image src={logo} w="3rem" />
+                <Image src={logo} w="3rem" alt="logo" />
                 <VStack spacing={0}>
                   <Heading size="lg" fontFamily={"pacifico"}>
                     Annette's

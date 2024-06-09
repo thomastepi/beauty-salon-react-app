@@ -26,7 +26,7 @@ const Cart = () => {
       <Center>
         <VStack w="100%">
           <PageHeadingBox
-            img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/spa-room.jpg`}
+            img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/back-view-afro-hairstyle.jpg`}
             title="Review Your Cart"
           />
           <Box w="70%">

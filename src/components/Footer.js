@@ -14,6 +14,7 @@ import {
   faFacebook,
   faTwitter,
   faLinkedin,
+  faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
   return (
@@ -34,14 +35,41 @@ const Footer = () => {
               <Text>Sunday: Closed</Text>
             </VStack>
             <HStack>
-              <Button colorScheme="black">
+              <Button
+                as="a"
+                href="https://www.facebook.com/oluwamims/"
+                target="_blank"
+                rel="noreferrer noopener"
+                colorScheme="black"
+              >
                 {<FontAwesomeIcon size="2xl" icon={faFacebook} />}
               </Button>
-              <Button colorScheme="black">
+              <Button
+                as="a"
+                href="https://twitter.com/TomTepi"
+                target="_blank"
+                rel="noreferrer noopener"
+                colorScheme="black"
+              >
                 {<FontAwesomeIcon size="2xl" icon={faTwitter} />}
               </Button>
-              <Button colorScheme="black">
+              <Button
+                as="a"
+                href="https://linkedin.com/in/thomastepi"
+                target="_blank"
+                rel="noreferrer noopener"
+                colorScheme="black"
+              >
                 {<FontAwesomeIcon size="2xl" icon={faLinkedin} />}
+              </Button>
+              <Button
+                as="a"
+                href="https://www.instagram.com/tom_tepi"
+                target="_blank"
+                rel="noreferrer noopener"
+                colorScheme="black"
+              >
+                {<FontAwesomeIcon size="2xl" icon={faInstagram} />}
               </Button>
             </HStack>
             <Text>© {new Date().getFullYear()} Annette's Beauty & SPA</Text>

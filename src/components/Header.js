@@ -33,7 +33,7 @@ const Header = () => {
               navigate("/");
             }}
           >
-            {!isMobile && <Image src={logo} w="3rem" />}
+            {!isMobile && <Image src={logo} w="3rem" alt="logo" />}
             <VStack spacing={1}>
               <Heading fontFamily="pacifico" size={isMobile ? "lg" : "md"}>
                 ANNETTE'S

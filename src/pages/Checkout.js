@@ -83,8 +83,8 @@ const Checkout = () => {
         <Center>
           <VStack w="100%">
             <PageHeadingBox
-              img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/loose-braids.jpg`}
-              title="Checkout"
+              img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/salon1.jpg`}
+              title="Complete Your Gift Purchase"
             />
             <Center w="80%">
               <Grid

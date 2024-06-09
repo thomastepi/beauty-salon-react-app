@@ -12,7 +12,7 @@ const GiftCardPage = () => {
         <VStack w="100%">
           <PageHeadingBox
             title="Treat Someone Special: Purchase a Gift Card"
-            img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/back-view-afro-hairstyle.jpg`}
+            img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/salon2.jpg`}
           />
           <Center w="80%">
             <Grid
