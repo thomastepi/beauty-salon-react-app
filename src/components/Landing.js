@@ -17,7 +17,10 @@ import {
 } from "@chakra-ui/react";
 
 const Landing = () => {
-  const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
+  const isMobile = useBreakpointValue(
+    { base: true, md: true, lg: false },
+    { ssr: false }
+  );
   const navigate = useNavigate();
 
   return (
@@ -33,7 +36,7 @@ const Landing = () => {
             >
               <Box
                 align="center"
-                bg="grey"
+                bg="#413543"
                 h="80vh"
                 bgImg={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/godisable.jpg`}
                 bgRepeat={"no-repeat"}
@@ -68,7 +71,7 @@ const Landing = () => {
               </Box>
               <Box
                 align="center"
-                bg="grey"
+                bg="#413543"
                 h="80vh"
                 bgImg={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/bone-straight.jpg`}
                 bgRepeat={"no-repeat"}
@@ -138,6 +141,7 @@ const Landing = () => {
             <HStack spacing={6}>
               <Box
                 p={{ base: "5rem", md: "7rem", lg: "9rem" }}
+                bg="#413543"
                 bgImg={
                   `${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/salon-interior.jpg` ||
                   img3
@@ -148,6 +152,7 @@ const Landing = () => {
               ></Box>
               <Box
                 p={{ base: "5rem", md: "7rem", lg: "9rem" }}
+                bg="#413543"
                 bgImg={
                   `${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/foundation.jpg` ||
                   img4

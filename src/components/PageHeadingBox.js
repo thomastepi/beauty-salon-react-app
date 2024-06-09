@@ -6,6 +6,7 @@ const PageHeadingBox = ({ title, img }) => {
     <>
       <Box
         w="90%"
+        bg="#413543"
         bgImg={img}
         bgRepeat={"no-repeat"}
         bgSize={"cover"}

@@ -41,6 +41,7 @@ const AboutUs = () => {
                   </Text>
                 </VStack>
                 <Box
+                  bg="#413543"
                   bgImg={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/face-card.jpg`}
                   p="15rem"
                   bgRepeat={"no-repeat"}
@@ -57,6 +58,7 @@ const AboutUs = () => {
             <Box w="60%" py="90px">
               <HStack spacing={5} flexDir={isMobile && "column"}>
                 <Box
+                  bg="#413543"
                   bgImg={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/salon-interior2.jpg`}
                   p="15rem"
                   bgRepeat={"no-repeat"}

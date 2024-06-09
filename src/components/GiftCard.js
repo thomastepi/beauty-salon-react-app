@@ -9,8 +9,11 @@ import {
   Center,
   Badge,
   VStack,
+  HStack,
+  Image,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/images/logo.jpeg";
 
 const GiftCard = ({ price, id }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -35,14 +38,17 @@ const GiftCard = ({ price, id }) => {
         <>
           <CardBody align="center">
             <Stack mt="6" spacing="4">
-              <VStack spacing={0}>
-                <Heading size="lg" fontFamily={"pacifico"}>
-                  Annette's
-                </Heading>
-                <Heading size="sm" fontFamily={"pacifico"}>
-                  Beauty & SPA
-                </Heading>
-              </VStack>
+              <HStack>
+                <Image src={logo} w="3rem" />
+                <VStack spacing={0}>
+                  <Heading size="lg" fontFamily={"pacifico"}>
+                    Annette's
+                  </Heading>
+                  <Heading size="sm" fontFamily={"pacifico"}>
+                    Beauty & SPA
+                  </Heading>
+                </VStack>
+              </HStack>
 
               <VStack spacing={0}>
                 <Text fontSize="3xl" fontWeight="bold">
