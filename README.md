@@ -1,4 +1,7 @@
 # Beauty Salon Web App - React Frontend (SPA)
+
+![Book Mart Screenshot](https://ik.imagekit.io/thormars/portfolio/salon.png)
+
 This repository contains the React frontend code for a web application designed for a beauty salon/spa. It provides a user-friendly interface for browsing services, booking appointments, shopping products, and referring friends.
 
 ## Key Features:
