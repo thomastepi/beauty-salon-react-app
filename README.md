@@ -4,6 +4,8 @@
 
 This repository contains the React frontend code for a web application designed for a beauty salon/spa. It provides a user-friendly interface for browsing services, booking appointments, shopping products, and referring friends.
 
+## <a href="https://annette.thomastepi.com" target="_blank" rel="noopener noreferrer"> <img src="https://img.shields.io/badge/LIVE%20DEMO-<COLOR>.svg" alt="Annette"> </a>
+
 ## Key Features:
  - Intuitive Navigation: Users can easily navigate through different sections of the application, including:
     - Services: Explore the salon's offerings with detailed descriptions.
