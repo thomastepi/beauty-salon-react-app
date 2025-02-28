@@ -4,11 +4,10 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { galleryImages } from "../utils/galleryImages";
 import { PageHeadingBox } from "../components";
 import { Box, Center, VStack, Heading } from "@chakra-ui/react";
-import SharedLayout from "./SharedLayout";
 
 const Gallery = () => {
   return (
-    <SharedLayout>
+    <>
       <Center>
         <VStack w="100%">
           <PageHeadingBox
@@ -24,7 +23,7 @@ const Gallery = () => {
           </Box>
         </VStack>
       </Center>
-    </SharedLayout>
+    </>
   );
 };
 

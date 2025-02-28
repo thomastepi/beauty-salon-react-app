@@ -17,7 +17,6 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { PageHeadingBox, StaticGiftCard } from "../components";
-import SharedLayout from "./SharedLayout";
 import { addToCart } from "../features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 import { resetForm } from "../features/giftCard/giftCardFormSlice";
@@ -54,104 +53,101 @@ const Product = () => {
 
   return (
     <>
-      <SharedLayout>
-        <Center>
-          <VStack w="100%">
-            <PageHeadingBox
-              img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/smiling-mary.jpg`}
-              title="Personalize Your Gift Card"
-            />
-            <Grid
-              templateColumns={useBreakpointValue({
-                base: "repeat(1, 1fr)",
-                md: "repeat(2, 1fr)",
-              })}
-              gap={9}
-            >
-              <Box>
-                <StaticGiftCard price={product.price} />
-              </Box>
-              <Box>
-                <VStack alignItems="start" spacing={3}>
-                  <Heading>${product.price} Gift Card</Heading>
-                  <Text>${product.price}</Text>
-                  <Box w="100%">
-                    <form onSubmit={formik.handleSubmit}>
-                      <VStack alignItems="start">
-                        <FormControl
-                          isRequired
-                          isInvalid={
-                            formik.touched.recipientEmail &&
-                            formik.errors.recipientEmail
-                          }
-                        >
-                          <FormLabel>Recipient Email</FormLabel>
-                          <Input
-                            id="recipientEmail"
-                            name="recipientEmail"
-                            {...formik.getFieldProps("recipientEmail")}
-                            borderRadius={0}
-                            placeholder="Enter Recipient Email"
-                            type="email"
-                          />
-                          <FormHelperText color="red">
-                            {formik.errors.recipientEmail}
-                          </FormHelperText>
-                        </FormControl>
-                        <FormControl
-                          isRequired
-                          isInvalid={
-                            formik.touched.senderName &&
-                            formik.errors.senderName
-                          }
-                        >
-                          <FormLabel>From</FormLabel>
-                          <Input
-                            name="senderName"
-                            id="senderName"
-                            {...formik.getFieldProps("senderName")}
-                            borderRadius={0}
-                            placeholder="Enter Your Name"
-                            type="text"
-                          />
-                          <FormHelperText color="red">
-                            {formik.errors.senderName}
-                          </FormHelperText>
-                        </FormControl>
-                        <FormControl
-                          isInvalid={
-                            formik.touched.message && formik.errors.message
-                          }
-                        >
-                          <FormLabel>Message</FormLabel>
-                          <Textarea
-                            name="message"
-                            id="message"
-                            {...formik.getFieldProps("message")}
-                            borderRadius={0}
-                            placeholder="Add a Message (Optional)"
-                            maxLength={100}
-                            value={formik.values.message}
-                          />
-                          <FormHelperText>
-                            {formik.values.message.length}/100 characters
-                          </FormHelperText>
-                          <FormHelperText color="red">
-                            {formik.errors.message}
-                          </FormHelperText>
-                        </FormControl>
-                        <Button type="submit" size="lg">
-                          Add to Cart
-                        </Button>
-                      </VStack>
-                    </form>
-                  </Box>
-                </VStack>
-              </Box>
-            </Grid>
-          </VStack>
-        </Center>
-      </SharedLayout>
+      <Center>
+        <VStack w="100%">
+          <PageHeadingBox
+            img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/smiling-mary.jpg`}
+            title="Personalize Your Gift Card"
+          />
+          <Grid
+            templateColumns={useBreakpointValue({
+              base: "repeat(1, 1fr)",
+              md: "repeat(2, 1fr)",
+            })}
+            gap={9}
+          >
+            <Box>
+              <StaticGiftCard price={product.price} />
+            </Box>
+            <Box>
+              <VStack alignItems="start" spacing={3}>
+                <Heading>${product.price} Gift Card</Heading>
+                <Text>${product.price}</Text>
+                <Box w="100%">
+                  <form onSubmit={formik.handleSubmit}>
+                    <VStack alignItems="start">
+                      <FormControl
+                        isRequired
+                        isInvalid={
+                          formik.touched.recipientEmail &&
+                          formik.errors.recipientEmail
+                        }
+                      >
+                        <FormLabel>Recipient Email</FormLabel>
+                        <Input
+                          id="recipientEmail"
+                          name="recipientEmail"
+                          {...formik.getFieldProps("recipientEmail")}
+                          borderRadius={0}
+                          placeholder="Enter Recipient Email"
+                          type="email"
+                        />
+                        <FormHelperText color="red">
+                          {formik.errors.recipientEmail}
+                        </FormHelperText>
+                      </FormControl>
+                      <FormControl
+                        isRequired
+                        isInvalid={
+                          formik.touched.senderName && formik.errors.senderName
+                        }
+                      >
+                        <FormLabel>From</FormLabel>
+                        <Input
+                          name="senderName"
+                          id="senderName"
+                          {...formik.getFieldProps("senderName")}
+                          borderRadius={0}
+                          placeholder="Enter Your Name"
+                          type="text"
+                        />
+                        <FormHelperText color="red">
+                          {formik.errors.senderName}
+                        </FormHelperText>
+                      </FormControl>
+                      <FormControl
+                        isInvalid={
+                          formik.touched.message && formik.errors.message
+                        }
+                      >
+                        <FormLabel>Message</FormLabel>
+                        <Textarea
+                          name="message"
+                          id="message"
+                          {...formik.getFieldProps("message")}
+                          borderRadius={0}
+                          placeholder="Add a Message (Optional)"
+                          maxLength={100}
+                          value={formik.values.message}
+                        />
+                        <FormHelperText>
+                          {formik.values.message.length}/100 characters
+                        </FormHelperText>
+                        <FormHelperText color="red">
+                          {formik.errors.message}
+                        </FormHelperText>
+                      </FormControl>
+                      <Button type="submit" size="lg">
+                        Add to Cart
+                      </Button>
+                    </VStack>
+                  </form>
+                </Box>
+              </VStack>
+            </Box>
+          </Grid>
+        </VStack>
+      </Center>
     </>
   );
 };

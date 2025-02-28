@@ -23,7 +23,7 @@ const Header = () => {
   const cartItemCount = useSelector((state) => state.cart.amount);
   return (
     <>
-      <Center py={4} bg="black" color="white">
+      <Center py={4} bg="black" color="white" pos={"sticky"} top={0} zIndex={1}>
         <HStack w="80%" justify="space-between">
           {isMobile && <DrawerPanel />}
           <HStack

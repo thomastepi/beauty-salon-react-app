@@ -1,5 +1,4 @@
 import React from "react";
-import SharedLayout from "./SharedLayout";
 import { products } from "../utils/products";
 import { Center, VStack, Grid, useBreakpointValue } from "@chakra-ui/react";
 import { GiftCard, PageHeadingBox } from "../components";
@@ -7,7 +6,7 @@ import { GiftCard, PageHeadingBox } from "../components";
 const GiftCardPage = () => {
   const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
   return (
-    <SharedLayout>
+    <>
       <Center>
         <VStack w="100%">
           <PageHeadingBox
@@ -33,7 +32,7 @@ const GiftCardPage = () => {
           </Center>
         </VStack>
       </Center>
-    </SharedLayout>
+    </>
   );
 };
 

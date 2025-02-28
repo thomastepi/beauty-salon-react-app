@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Center, VStack, Button, HStack } from "@chakra-ui/react";
-import SharedLayout from "./SharedLayout";
 import { PageHeadingBox, HairServices, SpaServices } from "../components";
 
 const Services = () => {
@@ -17,7 +16,7 @@ const Services = () => {
     setShowHairServices(false);
   };
   return (
-    <SharedLayout>
+    <>
       <Center>
         <VStack w="100%">
           <PageHeadingBox
@@ -49,7 +48,7 @@ const Services = () => {
           </Center>
         </VStack>
       </Center>
-    </SharedLayout>
+    </>
   );
 };
 

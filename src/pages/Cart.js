@@ -10,7 +10,6 @@ import {
   HStack,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import SharedLayout from "./SharedLayout";
 import { CartItem, PageHeadingBox } from "../components";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../features/cart/cartSlice";
@@ -22,7 +21,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (
-    <SharedLayout>
+    <>
       <Center>
         <VStack w="100%">
           <PageHeadingBox
@@ -71,7 +70,7 @@ const Cart = () => {
           </Box>
         </VStack>
       </Center>
-    </SharedLayout>
+    </>
   );
 };
 
