@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
   return (
     <div style={{ backgroundColor: "#000", color: "white" }}>
       <Header />
-      {children}
+      <main>{children}</main>
       <Footer />
     </div>
   );
