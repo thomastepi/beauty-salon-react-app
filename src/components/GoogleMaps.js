@@ -55,10 +55,10 @@ function MapWithInfoWindow() {
         position={{ lat: 5.976, lng: 10.166 }}
         onClick={() =>
           handleMarkerClick({
-            lat: 4.401,
-            lng: 9.442,
-            title: "Sawyer Camp",
-            description: "Banga Bakundu",
+            lat: 5.976,
+            lng: 10.166,
+            title: "Annette's Beauty & SPA",
+            description: "Your Oasis of Relaxation",
           })
         }
       />
