@@ -45,8 +45,8 @@ function MapWithInfoWindow() {
           position={{ lat: selectedMarker.lat, lng: selectedMarker.lng }}
           onCloseClick={handleInfoWindowClose}
         >
-          <div>
-            <h3>{selectedMarker.title}</h3>
+          <div style={{ maxWidth: "200px", textAlign: "center", color: "black" }}>
+            <h3 style={{ fontSize: "16px", fontWeight: "bold" }}>{selectedMarker.title}</h3>
             <p>{selectedMarker.description}</p>
           </div>
         </InfoWindow>
