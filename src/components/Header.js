@@ -22,44 +22,42 @@ const Header = () => {
   const navigate = useNavigate();
   const cartItemCount = useSelector((state) => state.cart.amount);
   return (
-    <>
-      <Center py={4} bg="black" color="white" pos={"sticky"} top={0} zIndex={1}>
-        <HStack w="80%" justify="space-between">
-          {isMobile && <DrawerPanel />}
-          <HStack
-            spacing={3}
-            cursor={"pointer"}
-            onClick={() => {
-              navigate("/");
-            }}
-          >
-            {!isMobile && <Image src={logo} w="3rem" alt="logo" />}
-            <VStack spacing={1}>
-              <Heading fontFamily="pacifico" size={isMobile ? "lg" : "md"}>
-                ANNETTE'S
-              </Heading>
-              <Text fontSize={isMobile ? "lg" : "sm"} fontFamily="Pacifico">
-                Beauty & SPA
-              </Text>
-            </VStack>
-          </HStack>
-          {!isMobile && <NavLinks flexDir={"row"} />}
-          <HStack>
-            <FontAwesomeIcon
-              onClick={() => navigate("/cart")}
-              cursor="pointer"
-              icon={faCartShopping}
-              size="lg"
-            />
-            {cartItemCount > 0 && (
-              <Badge ml={-2} colorScheme="red" borderRadius="full">
-                {cartItemCount}
-              </Badge>
-            )}
-          </HStack>
+    <Center py={4} bg="black" color="white" pos={"sticky"} top={0} zIndex={1}>
+      <HStack w="80%" justify="space-between">
+        {isMobile && <DrawerPanel />}
+        <HStack
+          spacing={3}
+          cursor={"pointer"}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          {!isMobile && <Image src={logo} w="3rem" alt="logo" />}
+          <VStack spacing={1}>
+            <Heading fontFamily="pacifico" size={isMobile ? "lg" : "md"}>
+              ANNETTE'S
+            </Heading>
+            <Text fontSize={isMobile ? "lg" : "sm"} fontFamily="Pacifico">
+              Beauty & SPA
+            </Text>
+          </VStack>
         </HStack>
-      </Center>
-    </>
+        {!isMobile && <NavLinks flexDir={"row"} />}
+        <HStack>
+          <FontAwesomeIcon
+            onClick={() => navigate("/cart")}
+            cursor="pointer"
+            icon={faCartShopping}
+            size="lg"
+          />
+          {cartItemCount > 0 && (
+            <Badge ml={-2} colorScheme="red" borderRadius="full">
+              {cartItemCount}
+            </Badge>
+          )}
+        </HStack>
+      </HStack>
+    </Center>
   );
 };
 

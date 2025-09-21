@@ -13,7 +13,7 @@ import { PageHeadingBox } from "../components";
 const AboutUs = () => {
   const isMobile = useBreakpointValue({ base: true, md: true, lg: false });
   return (
-    <Box>
+    <>
       <Center>
         <VStack>
           <PageHeadingBox
@@ -85,7 +85,7 @@ const AboutUs = () => {
           </Box>
         </VStack>
       </Center>
-    </Box>
+    </>
   );
 };
 

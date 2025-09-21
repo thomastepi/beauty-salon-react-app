@@ -16,16 +16,10 @@ import {
   faLinkedin,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-const Footer = () => {
+const Footer = ({ m = "75px 0 0 0" }) => {
   return (
     <>
-      <Box
-        bg="#191919"
-        color="white"
-        pt={4}
-        borderTop="1px solid white"
-        mt="75px"
-      >
+      <Box bg="#191919" color="white" pt={4} borderTop="1px solid white" m={m}>
         <Center>
           <VStack spacing={"50px"}>
             <VStack>

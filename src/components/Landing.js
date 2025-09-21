@@ -1,8 +1,8 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 import img3 from "../assets/images/salon-interior.jpg";
 import img4 from "../assets/images/foundation.jpg";
 import Newsletter from "./Newsletter";
+import GoogleMaps from "./GoogleMaps";
 import {
   Box,
   Button,
@@ -131,6 +131,7 @@ const Landing = () => {
           </VStack>
         </Box>
       </Center>
+
       <Center py="60px">
         <HStack
           w="90%"
@@ -167,6 +168,11 @@ const Landing = () => {
             <Newsletter />
           </Box>
         </HStack>
+      </Center>
+      <Center m="0 0 -55px 0">
+        <Box w={isMobile ? "85%" : "50%"}>
+          <GoogleMaps h="200px" />
+        </Box>
       </Center>
     </Box>
   );

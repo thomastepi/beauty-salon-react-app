@@ -1,5 +1,4 @@
-import React from "react";
-import { faBars, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import useIsMobile from "../hooks/useIsMobile";
 import {
   useDisclosure,
@@ -15,6 +14,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import NavLinks from "./NavLinks";
 
 const DrawerPanel = () => {
@@ -34,7 +34,7 @@ const DrawerPanel = () => {
           <DrawerBody marginTop={20}>
             <Box py={4}>
               <Box color="white">
-                <NavLinks flexDir={"column"} />
+                <NavLinks onClose={onClose} flexDir={"column"} />
               </Box>
             </Box>
           </DrawerBody>
@@ -42,8 +42,20 @@ const DrawerPanel = () => {
             <Center>
               <DrawerFooter color="white" w="50%" mb="40px">
                 <HStack spacing={7} w="100%" justify={"space-between"}>
-                  <FontAwesomeIcon icon={faPhone} size="2xl" />
-                  <FontAwesomeIcon icon={faEnvelope} size="2xl" />
+                  <a
+                    href="https://wa.me/12144314816"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <FontAwesomeIcon icon={faWhatsapp} size="2xl" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/tt_tepi/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                  >
+                    <FontAwesomeIcon icon={faInstagram} size="2xl" />
+                  </a>
                 </HStack>
               </DrawerFooter>
             </Center>
