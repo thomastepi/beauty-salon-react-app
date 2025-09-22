@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Card,
   CardBody,
@@ -51,11 +51,11 @@ const GiftCard = ({ price, id }) => {
               </HStack>
 
               <VStack spacing={0}>
-                <Text fontSize="3xl" fontWeight="bold">
-                  <Badge mr="1" fontSize=".6em" colorScheme="AlphaBlack">
-                    $
-                  </Badge>
+                <Text fontSize="3xl" fontWeight="bold" color="whiteAlpha.600">
                   {price}
+                  <Badge mr="1" fontSize=".6em" colorScheme="AlphaBlack">
+                    F CFA
+                  </Badge>
                 </Text>
               </VStack>
             </Stack>

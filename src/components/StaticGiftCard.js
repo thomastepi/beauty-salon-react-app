@@ -32,10 +32,10 @@ const StaticGiftCard = ({ price }) => {
           </VStack>
           <VStack spacing={0}>
             <Text fontSize="3xl" fontWeight="bold">
-              <Badge mr="1" fontSize=".6em" colorScheme="AlphaBlack">
-                $
-              </Badge>
               {price}
+              <Badge mr="1" fontSize=".6em" color="AlphaBlack">
+                F
+              </Badge>
             </Text>
           </VStack>
         </Stack>

@@ -111,11 +111,11 @@ const Landing = () => {
               Your Oasis of Relaxation in Mile 3, Bamenda
             </Heading>
             <Text fontSize="lg">
-              At Annette's Beauty & SPA, we offer a complete range of services
-              to pamper you from head to toe. Whether you're looking for a
-              luxurious hair treatment, a refreshing manicure and pedicure, or a
-              relaxing head and foot wash, our skilled team is dedicated to
-              providing you with a rejuvenating experience.
+              Annette’s Beauty & Spa has been serving clients in Mile 3, Bamenda
+              for over 5 years. As our community grew, we expanded into a
+              modern, larger space and added more talented stylists to better
+              serve you. Today, we’re proud to be a trusted destination for
+              beautiful styles and a welcoming salon experience.
             </Text>
             <Button
               as={Link}

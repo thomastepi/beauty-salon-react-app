@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Center,
@@ -12,9 +11,9 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
-  faTwitter,
-  faLinkedin,
   faInstagram,
+  faWhatsapp,
+  faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
 const Footer = ({ m = "75px 0 0 0" }) => {
   return (
@@ -31,7 +30,7 @@ const Footer = ({ m = "75px 0 0 0" }) => {
             <HStack>
               <Button
                 as="a"
-                href="https://www.facebook.com/oluwamims/"
+                href="https://www.facebook.com/"
                 target="_blank"
                 rel="noreferrer noopener"
                 colorScheme="black"
@@ -40,25 +39,25 @@ const Footer = ({ m = "75px 0 0 0" }) => {
               </Button>
               <Button
                 as="a"
-                href="https://twitter.com/TomTepi"
+                href="https://wa.me/12144314816"
                 target="_blank"
                 rel="noreferrer noopener"
                 colorScheme="black"
               >
-                {<FontAwesomeIcon size="2xl" icon={faTwitter} />}
+                {<FontAwesomeIcon size="2xl" icon={faWhatsapp} />}
               </Button>
               <Button
                 as="a"
-                href="https://linkedin.com/in/thomastepi"
+                href="https://www.tiktok.com/@phase_nine"
                 target="_blank"
                 rel="noreferrer noopener"
                 colorScheme="black"
               >
-                {<FontAwesomeIcon size="2xl" icon={faLinkedin} />}
+                {<FontAwesomeIcon size="2xl" icon={faTiktok} />}
               </Button>
               <Button
                 as="a"
-                href="https://www.instagram.com/tom_tepi"
+                href="https://www.instagram.com/tt_tepi"
                 target="_blank"
                 rel="noreferrer noopener"
                 colorScheme="black"

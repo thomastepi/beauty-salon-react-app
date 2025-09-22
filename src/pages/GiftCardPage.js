@@ -1,4 +1,3 @@
-import React from "react";
 import { products } from "../utils/products";
 import { Center, VStack, Grid, useBreakpointValue } from "@chakra-ui/react";
 import { GiftCard, PageHeadingBox } from "../components";

@@ -23,19 +23,24 @@ const AboutUs = () => {
           <Box w="60%" py="90px">
             <HStack flexDir={isMobile && "column"} spacing={5}>
               <VStack spacing={4}>
-                <Text fontSize="lg">
-                  My passion for hair and beauty started when I was young. After
-                  years of working in salons and honing my skills, I felt it was
-                  time to create a space that reflected my own vision for
-                  exceptional customer service and a truly relaxing experience.
-                  That's how Annette's Beauty & Spa was born!
+                <Text>
+                  My passion for hair and beauty began at a young age. After
+                  years of refining my skills in salons, I wanted to create a
+                  space that reflected my own vision. That dream became
+                  Annette’s Beauty & Spa.
                 </Text>
                 <Text>
-                  We've been open for 5 years now, and it's been incredibly
-                  rewarding to see our client base grow and become a part of the
-                  salon's community. A big milestone for us was winning the
-                  "Best Salon in Bamenda" award last year. It was a great
-                  recognition of our team's hard work and dedication.
+                  For 5 years, we’ve grown alongside our clients. Last year, we
+                  moved into a larger, modern space in Mile 3 to better welcome
+                  our increasing clientele. With more braiding seats and five
+                  new stylists, our team is now able to serve more guests while
+                  maintaining the same warmth and attention that built our
+                  reputation.
+                </Text>
+                <Text>
+                  Annette’s Beauty & Spa is more than a salon, it’s a community
+                  space where confidence and beauty meet in a welcoming
+                  environment.
                 </Text>
               </VStack>
               <Box
@@ -64,7 +69,7 @@ const AboutUs = () => {
                 bgPos={"center"}
               ></Box>
               <VStack spacing={4}>
-                <Text fontSize="lg">
+                <Text>
                   We focus on creating a personalized and relaxing experience
                   for each client. Our stylists take the time to understand your
                   individual needs and preferences.

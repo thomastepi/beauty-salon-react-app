@@ -71,8 +71,8 @@ const Product = () => {
             </Box>
             <Box>
               <VStack alignItems="start" spacing={3}>
-                <Heading>${product.price} Gift Card</Heading>
-                <Text>${product.price}</Text>
+                <Heading>{product.price} F Gift Card</Heading>
+                <Text>{product.price} F</Text>
                 <Box w="100%">
                   <form onSubmit={formik.handleSubmit}>
                     <VStack alignItems="start">

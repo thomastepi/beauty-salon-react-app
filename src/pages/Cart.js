@@ -62,7 +62,7 @@ const Cart = () => {
                 <Box w="100%" py="60px">
                   <VStack alignItems="end">
                     <Heading>Cart Totals</Heading>
-                    <Text fontSize="3xl">Total: ${total}</Text>
+                    <Text fontSize="3xl">Total: {total} F</Text>
                   </VStack>
                 </Box>
               </>

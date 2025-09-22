@@ -67,10 +67,10 @@ const ContactUs = () => {
               </VStack>
             </VStack>
             <VStack>
-              <Heading>Phone/Email</Heading>
+              <Heading>Contact</Heading>
               <VStack spacing={0}>
-                <Text align="center">Tel +237 6 711 00 11</Text>
-                <Text align="center">annettes-beauty-spa@gmail.com</Text>
+                <Text align="center">WhatsApp +1 214 431 4816</Text>
+                <Text align="center">hello@thomastepi.com</Text>
                 <Text></Text>
               </VStack>
             </VStack>
