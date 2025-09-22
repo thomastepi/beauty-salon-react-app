@@ -11,32 +11,45 @@ const NavLinks = ({ flexDir, onClose }) => {
     { id: 6, title: "Contact Us", to: "/contact-us" },
   ];
 
-  const location = useLocation();
-  const currentPath = location.pathname;
-  console.log("currentPath", currentPath);
+  const { pathname } = useLocation();
+
+  const isGiftCardsContext =
+    pathname === "/gift-cards" ||
+    pathname.startsWith("/gift-cards/") ||
+    pathname.startsWith("/product/") ||
+    pathname === "/cart" ||
+    pathname === "/checkout";
+
+  const isActive = (linkTo) =>
+    linkTo === "/gift-cards"
+      ? isGiftCardsContext
+      : pathname === linkTo || pathname.startsWith(`${linkTo}/`);
 
   return (
     <Box>
       <Stack flexDir={flexDir} alignItems="center" spacing={5}>
-        {links.map((link) => (
-          <Link
-            key={link.title}
-            as={NavLink}
-            to={link.to}
-            _hover={{
-              fontSize: "19px",
-            }}
-            display={{ base: "block", md: link.id === 1 ? "none" : "block" }}
-            fontSize="16px"
-            transition="font-size 0.3s"
-            textDecoration="none"
-            color={currentPath === link.to ? "gray.300" : "gray.500"}
-            fontWeight={500}
-            onClick={onClose}
-          >
-            {link.title}
-          </Link>
-        ))}
+        {links.map((link) => {
+          const active = isActive(link.to);
+          return (
+            <Link
+              key={link.title}
+              as={NavLink}
+              to={link.to}
+              _hover={{ fontSize: "19px" }}
+              display={{ base: "block", md: link.id === 1 ? "none" : "block" }}
+              fontSize="16px"
+              transition="font-size 0.3s"
+              textDecoration="none"
+              color={active ? "gray.300" : "gray.500"}
+              fontWeight={active ? 700 : 500}
+              borderBottom={active ? "2px solid" : "2px solid transparent"}
+              borderColor={active ? "gray.300" : "transparent"}
+              onClick={onClose}
+            >
+              {link.title}
+            </Link>
+          );
+        })}
       </Stack>
     </Box>
   );
