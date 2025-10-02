@@ -1,13 +1,5 @@
-import React from "react";
-import {
-  Card,
-  CardBody,
-  Stack,
-  VStack,
-  Heading,
-  Badge,
-  Text,
-} from "@chakra-ui/react";
+import { Card, CardBody, Stack, VStack, Heading, Text } from "@chakra-ui/react";
+import { currencify } from "../utils/currencify";
 
 const StaticGiftCard = ({ price }) => {
   return (
@@ -31,11 +23,8 @@ const StaticGiftCard = ({ price }) => {
             </Heading>
           </VStack>
           <VStack spacing={0}>
-            <Text fontSize="3xl" fontWeight="bold">
-              {price}
-              <Badge mr="1" fontSize=".6em" color="AlphaBlack">
-                F
-              </Badge>
+            <Text fontSize="2xl" fontWeight="bold">
+              {currencify(price, "xaf", "custom", "Frs", "suffix")}
             </Text>
           </VStack>
         </Stack>

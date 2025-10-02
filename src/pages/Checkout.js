@@ -18,6 +18,7 @@ import {
   Td,
 } from "@chakra-ui/react";
 import { PageHeadingBox, StaticGiftCard } from "../components";
+import { currencify } from "../utils/currencify";
 import { useSelector } from "react-redux";
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -103,7 +104,15 @@ const Checkout = () => {
                       <Tr key={item.id}>
                         <Td textAlign="center">{item.recipientEmail}</Td>
                         <Td textAlign="center">{item.quantity}</Td>
-                        <Td textAlign="center">{item.price} F</Td>
+                        <Td textAlign="center">
+                          {currencify(
+                            item.price,
+                            "xaf",
+                            "custom",
+                            "Frs",
+                            "suffix"
+                          )}
+                        </Td>
                       </Tr>
                     ))}
                   </Tbody>
@@ -122,11 +131,27 @@ const Checkout = () => {
                   </VStack>
                   <HStack w="50%" justify={"space-between"}>
                     <Heading size="md">Sub Total:</Heading>
-                    <Text>{cart.total} F</Text>
+                    <Text>
+                      {currencify(
+                        Number(cart.total),
+                        "xaf",
+                        "custom",
+                        "Frs",
+                        "suffix"
+                      )}
+                    </Text>
                   </HStack>
                   <HStack w="50%" justify={"space-between"}>
                     <Heading size="md">Total Amount:</Heading>
-                    <Text>{cart.total} F</Text>
+                    <Text>
+                      {currencify(
+                        Number(cart.total),
+                        "xaf",
+                        "custom",
+                        "Frs",
+                        "suffix"
+                      )}
+                    </Text>
                   </HStack>
                   <VStack spacing={0} mt="50px">
                     <Button

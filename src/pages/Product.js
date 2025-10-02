@@ -21,6 +21,7 @@ import { addToCart } from "../features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 import { resetForm } from "../features/giftCard/giftCardFormSlice";
 import { useFormik } from "formik";
+import { currencify } from "../utils/currencify";
 import * as Yup from "yup";
 
 const Product = () => {
@@ -71,8 +72,13 @@ const Product = () => {
             </Box>
             <Box>
               <VStack alignItems="start" spacing={3}>
-                <Heading>{product.price} F Gift Card</Heading>
-                <Text>{product.price} F</Text>
+                <Heading>
+                  {currencify(product.price, "xaf", "symbol", "", "prefix")}{" "}
+                  Gift Card
+                </Heading>
+                <Text>
+                  {currencify(product.price, "xaf", "symbol", "", "prefix")}
+                </Text>
                 <Box w="100%">
                   <form onSubmit={formik.handleSubmit}>
                     <VStack alignItems="start">

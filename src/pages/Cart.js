@@ -11,6 +11,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { CartItem, PageHeadingBox } from "../components";
+import { currencify } from "../utils/currencify";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../features/cart/cartSlice";
 import { useNavigate } from "react-router-dom";
@@ -62,7 +63,13 @@ const Cart = () => {
                 <Box w="100%" py="60px">
                   <VStack alignItems="end">
                     <Heading>Cart Totals</Heading>
-                    <Text fontSize="3xl">Total: {total} F</Text>
+                    <Text
+                      fontSize={{ base: "xl", md: "2xl" }}
+                      fontWeight="bold"
+                      textAlign="right"
+                    >
+                      Total: {currencify(total, "xaf", "symbol", "", "prefix")}
+                    </Text>
                   </VStack>
                 </Box>
               </>

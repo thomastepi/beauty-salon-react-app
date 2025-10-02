@@ -7,12 +7,12 @@ import {
   Stack,
   Heading,
   Center,
-  Badge,
   VStack,
   HStack,
   Image,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { currencify } from "../utils/currencify";
 import logo from "../assets/images/logo.jpeg";
 
 const GiftCard = ({ price, id }) => {
@@ -51,11 +51,8 @@ const GiftCard = ({ price, id }) => {
               </HStack>
 
               <VStack spacing={0}>
-                <Text fontSize="3xl" fontWeight="bold" color="whiteAlpha.600">
-                  {price}
-                  <Badge mr="1" fontSize=".6em" colorScheme="AlphaBlack">
-                    F CFA
-                  </Badge>
+                <Text fontSize="2xl" fontWeight="bold" color="whiteAlpha.600">
+                  {currencify(price, "xaf", "symbol", "", "prefix")}
                 </Text>
               </VStack>
             </Stack>
