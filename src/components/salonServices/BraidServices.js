@@ -1,64 +1,65 @@
 import React from "react";
 import {
   Heading,
-  Table,
-  Tbody,
-  Tr,
-  Td,
-  TableContainer,
+  Text,
+  VStack,
+  SimpleGrid,
   Box,
+  Divider,
 } from "@chakra-ui/react";
+
+const services = [
+  {
+    name: "Njangala Cornrows",
+    description: "Classic cornrows in various styles and patterns.",
+    price: "Starts at CFA 10,000",
+  },
+  {
+    name: "Fulani Braids",
+    description: "Intricate braided style with intricate details and cowrie shells (optional).",
+    price: "Starts at CFA 15,000",
+  },
+  {
+    name: "Plaited Braids",
+    description: "Braided hairstyle styled into an elegant updo.",
+    price: "Starts at CFA 15,000",
+  },
+  {
+    name: "Goddess Faux Locs",
+    description: "Temporary loc extensions for a protective and stylish look.",
+    price: "Starts at CFA 20,000",
+  },
+  {
+    name: "Box Braids",
+    description: "Offered in various lengths and thicknesses.",
+    price: "Starts at CFA 20,000",
+  },
+];
 
 const BraidServices = () => {
   return (
-    <Box w={{ base: "95%", md: "80%", lg: "70%" }}>
-      <TableContainer>
-        <Heading>Braiding Services:</Heading>
-        <Table variant="simple">
-          <Tbody>
-            <Tr>
-              <Td>Njangala Cornrows</Td>
-              <Td whiteSpace="normal" wordBreak="break-word">
-                Classic cornrows in various styles and patterns. (Price varies
-                based on length and complexity - CFA 10,000frs){" "}
-              </Td>
-            </Tr>
-          </Tbody>
-          <Tbody>
-            <Tr>
-              <Td>Fulani Braids</Td>
-              <Td whiteSpace="normal" wordBreak="break-word">
-                Intricate braided style with intricate details and cowrie shells
-                (optional). (Price varies based on length and complexity - CFA
-                15,000frs){" "}
-              </Td>
-            </Tr>
-            <Tr>
-              <Td>Plaited Braids</Td>
-              <Td whiteSpace="normal" wordBreak="break-word">
-                Braided hairstyle styled into an elegant updo. (Price varies
-                based on length and complexity - CFA 15,000frs){" "}
-              </Td>
-            </Tr>
-            <Tr>
-              <Td>Goddess Faux Locs</Td>
-              <Td whiteSpace="normal" wordBreak="break-word">
-                Temporary loc extensions for a protective and stylish look.
-                (Price varies based on length and desired style - CFA 20,000frs){" "}
-              </Td>
-            </Tr>
-          </Tbody>
-          <Tbody>
-            <Tr>
-              <Td>Box Braids</Td>
-              <Td whiteSpace="normal" wordBreak="break-word">
-                Offered in various lengths and thicknesses. (Price varies based
-                on length and desired thickness - CFA 20,000frs){" "}
-              </Td>
-            </Tr>
-          </Tbody>
-        </Table>
-      </TableContainer>
+    <Box w={{ base: "95%", md: "90%" }} mx="auto">
+      <VStack spacing={8} align="stretch">
+        <Heading fontFamily="heading" size="2xl" textAlign="center">
+          Braiding Services
+        </Heading>
+        <Divider />
+        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} py={8}>
+          {services.map((service) => (
+            <Box key={service.name} p={6} borderRadius="md" bg="brand.surface" boxShadow="md">
+              <VStack align="flex-start" spacing={3}>
+                <Heading fontFamily="heading" size="lg">
+                  {service.name}
+                </Heading>
+                <Text>{service.description}</Text>
+                <Text fontWeight="bold" color="brand.primary">
+                  {service.price}
+                </Text>
+              </VStack>
+            </Box>
+          ))}
+        </SimpleGrid>
+      </VStack>
     </Box>
   );
 };

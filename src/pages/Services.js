@@ -1,54 +1,54 @@
-import React, { useState } from "react";
-import { Center, VStack, Button, HStack } from "@chakra-ui/react";
+import React from "react";
+import {
+  Box,
+  VStack,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
+  Center,
+} from "@chakra-ui/react";
 import { PageHeadingBox, HairServices, SpaServices } from "../components";
 
 const Services = () => {
-  const [showHairServices, setShowHairServices] = useState(true);
-  const [showSpaServices, setShowSpaServices] = useState(false);
-
-  const handleShowHairServices = () => {
-    setShowHairServices(true);
-    setShowSpaServices(false);
-  };
-
-  const handleShowSpaServices = () => {
-    setShowSpaServices(true);
-    setShowHairServices(false);
-  };
   return (
-    <>
-      <Center>
-        <VStack w="100%">
-          <PageHeadingBox
-            title="Relax, Rejuvenate, and Beautify: Our Services Await"
-            img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/spa-natural-background.jpg`}
-          />
-          <Center py="50px">
-            <VStack spacing={6} align="center">
-              <HStack>
-                <Button
-                  colorScheme={showHairServices ? "whiteAlpha" : "blackAlpha"}
-                  onClick={() => handleShowHairServices()}
-                  p="30px"
-                >
-                  Hair Services
-                </Button>
-                <Button
-                  colorScheme={showSpaServices ? "whiteAlpha" : "blackAlpha"}
-                  onClick={() => handleShowSpaServices()}
-                  p="30px"
-                >
-                  SPA Services
-                </Button>
-              </HStack>
-              <hr style={{ width: "100%", marginBottom: "60px" }} />
-              {showHairServices && <HairServices />}
-              {showSpaServices && <SpaServices />}
-            </VStack>
-          </Center>
+    <Box bg="brand.background">
+      <PageHeadingBox
+        title="Relax, Rejuvenate, and Beautify"
+        img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/spa-natural-background.jpg`}
+      />
+      <Center py={{ base: 10, md: 20 }}>
+        <VStack w="100%" maxW="1200px" spacing={12}>
+          <Tabs variant="soft-rounded" colorScheme="purple" size="lg">
+            <TabList justifyContent="center">
+              <Tab
+                _selected={{ color: "white", bg: "brand.primary" }}
+                _hover={{ bg: "brand.accent" }}
+                m={2}
+              >
+                Hair Services
+              </Tab>
+              <Tab
+                _selected={{ color: "white", bg: "brand.primary" }}
+                _hover={{ bg: "brand.accent" }}
+                m={2}
+              >
+                SPA Services
+              </Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel>
+                <HairServices />
+              </TabPanel>
+              <TabPanel>
+                <SpaServices />
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
         </VStack>
       </Center>
-    </>
+    </Box>
   );
 };
 

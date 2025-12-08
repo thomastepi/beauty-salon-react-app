@@ -15,7 +15,7 @@ import {
   faWhatsapp,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
-const Footer = ({ m = "75px 0 0 0" }) => {
+const Footer = ({ m = "0 0 0 0" }) => {
   return (
     <>
       <Box bg="#191919" color="white" pt={4} borderTop="1px solid white" m={m}>

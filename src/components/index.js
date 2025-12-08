@@ -1,4 +1,3 @@
-import Landing from "./Landing";
 import Header from "./Header";
 import Footer from "./Footer";
 import Newsletter from "./Newsletter";
@@ -14,7 +13,6 @@ import ScrollToTop from "./ScrollToTop";
 import AlertBox from "./AlertBox";
 
 export {
-  Landing,
   Header,
   Footer,
   Newsletter,

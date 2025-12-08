@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { Box, Stack, Link } from "@chakra-ui/react";
 
-const NavLinks = ({ flexDir, onClose }) => {
+const NavLinks = ({ flexDir, onClose, isScrolled }) => {
   const links = [
     { id: 1, title: "Home", to: "/" },
     { id: 2, title: "About Us", to: "/about-us" },
@@ -25,25 +25,43 @@ const NavLinks = ({ flexDir, onClose }) => {
       ? isGiftCardsContext
       : pathname === linkTo || pathname.startsWith(`${linkTo}/`);
 
+  const getLinkStyle = (active) => {
+    if (isScrolled) {
+      return {
+        color: active ? "brand.primary" : "brand.text",
+        borderColor: active ? "brand.primary" : "transparent",
+      };
+    }
+    return {
+      color: active ? "white" : "brand.textMuted", // Use textMuted for inactive links on transparent background
+      borderColor: active ? "white" : "transparent",
+    };
+  };
+
   return (
     <Box>
-      <Stack flexDir={flexDir} alignItems="center" spacing={5}>
+      <Stack flexDir={flexDir} alignItems="center" spacing={8}>
         {links.map((link) => {
           const active = isActive(link.to);
+          const styles = getLinkStyle(active);
           return (
             <Link
               key={link.title}
               as={NavLink}
               to={link.to}
-              _hover={{ fontSize: "19px" }}
+              _hover={{
+                textDecoration: "none",
+                color: isScrolled ? "brand.primary" : "brand.accent", // Use brand.accent for hover on transparent background
+              }}
               display={{ base: "block", md: link.id === 1 ? "none" : "block" }}
               fontSize="16px"
-              transition="font-size 0.3s"
+              transition="color 0.3s"
               textDecoration="none"
-              color={active ? "gray.300" : "gray.500"}
-              fontWeight={active ? 700 : 500}
-              borderBottom={active ? "2px solid" : "2px solid transparent"}
-              borderColor={active ? "gray.300" : "transparent"}
+              color={styles.color}
+              fontWeight={active ? "700" : "500"}
+              borderBottom="2px solid"
+              borderColor={styles.borderColor}
+              pb={1}
               onClick={onClose}
             >
               {link.title}
@@ -56,3 +74,4 @@ const NavLinks = ({ flexDir, onClose }) => {
 };
 
 export default NavLinks;
+

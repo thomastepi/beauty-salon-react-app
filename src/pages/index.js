@@ -1,4 +1,4 @@
-import Home from "./Home";
+import LandingPage from "./LandingPage";
 import AboutUs from "./AboutUs";
 import Services from "./Services";
 import GiftCardPage from "./GiftCardPage";
@@ -12,7 +12,7 @@ import Success from "./Success";
 import Cancel from "./Cancel";
 
 export {
-  Home,
+  LandingPage,
   AboutUs,
   Services,
   GiftCardPage,

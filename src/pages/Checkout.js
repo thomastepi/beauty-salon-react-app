@@ -85,13 +85,17 @@ const Checkout = () => {
             img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/salon1.jpg`}
             title="Complete Your Gift Purchase"
           />
-          <Center w="80%">
+          <Center w={{ base: "100%", md: "80%" }} py="5rem">
             <Grid
               templateColumns={isMobile ? "repeat(1, 1fr)" : "repeat(2, 1fr)"}
               gap={9}
             >
-              <Box>
-                <Table>
+              <Box
+                overflowX={{ base: "auto", md: "visible" }}
+                w="100%"
+                whiteSpace={{ base: "nowrap", md: "normal" }}
+              >
+                <Table size="sm">
                   <Thead>
                     <Tr>
                       <Th textAlign="center">Recipient</Th>

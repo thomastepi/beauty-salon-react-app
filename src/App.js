@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Home,
+  LandingPage,
   AboutUs,
   Services,
   GiftCardPage,
@@ -23,7 +23,7 @@ function App() {
         <ScrollToTop />
         <Layout>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/services" element={<Services />} />
             <Route path="/gift-cards" element={<GiftCardPage />} />

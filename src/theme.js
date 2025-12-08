@@ -4,19 +4,27 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: "gray.100",
-        color: "gray.800",
-        fontFamily: "Inter, sans-serif",
+        bg: "brand.background",
+        color: "brand.text",
+        fontFamily: "Montserrat, sans-serif",
       },
     },
   },
   fonts: {
-    heading: "Poppins, sans-serif",
-    body: "Inter, sans-serif",
+    heading: "'Playfair Display', serif",
+    body: "'Montserrat', sans-serif",
+    pacifico: "'Pacifico', cursive",
   },
   colors: {
-    primary: "#2B6CB0",
-    secondary: "#48BB78",
+    brand: {
+      primary: "#D4B4B4",
+      secondary: "#A9A9A9",
+      background: "#1A1A1D",
+      surface: "#242427",
+      text: "#E6E6E6",
+      textMuted: "#B9B9B9",
+      accent: "#EAC7C7",
+    },
   },
 });
 

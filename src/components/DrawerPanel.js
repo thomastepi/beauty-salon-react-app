@@ -17,30 +17,40 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import NavLinks from "./NavLinks";
 
-const DrawerPanel = () => {
+const DrawerPanel = ({ isScrolled }) => {
   const isMobile = useIsMobile();
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button onClick={onOpen} bg="black">
+      <Button onClick={onOpen} bg="transparent" _hover={{ bg: "transparent" }}>
         {" "}
-        {<FontAwesomeIcon color="white" icon={faBars} size="2x" />}
+        {
+          <FontAwesomeIcon
+            color={isScrolled ? "brand.text" : "white"}
+            icon={faBars}
+            size="2x"
+          />
+        }
       </Button>
       <Drawer isOpen={isOpen} onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent bg="black">
-          <DrawerCloseButton color="white" />
+        <DrawerContent bg="brand.background">
+          <DrawerCloseButton color="brand.text" />
 
           <DrawerBody marginTop={20}>
             <Box py={4}>
-              <Box color="white">
-                <NavLinks onClose={onClose} flexDir={"column"} />
+              <Box>
+                <NavLinks
+                  onClose={onClose}
+                  flexDir={"column"}
+                  isScrolled={true}
+                />
               </Box>
             </Box>
           </DrawerBody>
           {isMobile && (
             <Center>
-              <DrawerFooter color="white" w="50%" mb="40px">
+              <DrawerFooter color="brand.text" w="50%" mb="40px">
                 <HStack spacing={7} w="100%" justify={"space-between"}>
                   <a
                     href="https://wa.me/12144314816"

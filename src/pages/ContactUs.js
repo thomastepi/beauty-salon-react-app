@@ -10,18 +10,22 @@ import {
   Textarea,
   Center,
   VStack,
-  FormControl,
-  FormHelperText,
   HStack,
-  Stack,
+  FormControl,
+  FormErrorMessage,
+  Grid,
   useBreakpointValue,
+  Icon,
 } from "@chakra-ui/react";
 import { PageHeadingBox, GoogleMaps, AlertBox } from "../components";
+//import contactBg from "../assets/images/posing-together.jpg";
+import { FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
 
 const ContactUs = () => {
   const [alert, setAlert] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const isMobile = useBreakpointValue({ base: true, md: false });
+  const columns = useBreakpointValue({ base: 1, md: 2 });
+
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -29,9 +33,9 @@ const ContactUs = () => {
       message: "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Required"),
-      email: Yup.string().email("Invalid email address").required("Required"),
-      message: Yup.string().required("Required"),
+      name: Yup.string().required("Name is required"),
+      email: Yup.string().email("Invalid email address").required("Email is required"),
+      message: Yup.string().required("Message is required"),
     }),
     onSubmit: (values) => {
       setAlert(false);
@@ -43,126 +47,129 @@ const ContactUs = () => {
       }, 2000);
     },
   });
+
   return (
-    <>
-      <Center>
-        <VStack w="100%">
-          <PageHeadingBox
-            img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/posing-together.jpg`}
-            title="We'd love to hear from you!"
-          />
-          <HStack
-            spacing={9}
-            w={isMobile ? "80%" : "40%"}
-            justify={"space-between"}
-            pb="70px"
-            flexDir={isMobile && "column"}
-          >
-            <VStack>
-              <Heading>Address</Heading>
-              <VStack spacing={0}>
-                <Text align="center">Mile 3, Nkwen</Text>
-                <Text align="center">Bamenda</Text>
-                <Text align="center">North West Region</Text>
-              </VStack>
-            </VStack>
-            <VStack>
-              <Heading>Contact</Heading>
-              <VStack spacing={0}>
-                <Text align="center">WhatsApp +1 214 431 4816</Text>
-                <Text align="center">hello@thomastepi.com</Text>
-                <Text></Text>
-              </VStack>
-            </VStack>
-          </HStack>
-          <Box w="100%" h="25rem">
-            <GoogleMaps />
-          </Box>
-          <Stack w={isMobile ? "90%" : "50%"} spacing={2} p="4" mt="75px">
-            <Heading align="center" as="h2" size="lg" mb="4">
-              Send us a message
+    <Box bg="brand.background">
+      <PageHeadingBox
+        img={"https://ik.imagekit.io/thormars/salon-app/posing-together.jpg"}
+        title="Get In Touch"
+      />
+      <Center py={{ base: 10, md: 20 }}>
+        <Grid
+          templateColumns={`repeat(${columns}, 1fr)`}
+          gap={10}
+          w="90%"
+          maxW="1200px"
+        >
+          <VStack spacing={8} align="flex-start">
+            <Heading fontFamily="heading" size="2xl">
+              Contact Details
             </Heading>
-            <Text align="center" mb="4">
-              Have a question, comment, or concern? Fill out the form below and
-              we'll get back to you as soon as possible.
-            </Text>
-            <form onSubmit={formik.handleSubmit}>
-              <VStack>
-                <FormControl
-                  isInvalid={formik.touched.name && formik.errors.name}
-                >
-                  <Input
-                    {...formik.getFieldProps("name")}
-                    name="name"
-                    type="text"
-                    placeholder="Your Name"
-                    focusBorderColor="white"
-                    borderRadius="0"
-                    borderStyle="none none solid none"
-                    _focus={{ borderStyle: "solid" }}
-                  />
-                  <FormHelperText color="red">
-                    {formik.errors.name}
-                  </FormHelperText>
-                </FormControl>
-                <FormControl
-                  isInvalid={formik.touched.email && formik.errors.email}
-                >
-                  <Input
-                    {...formik.getFieldProps("email")}
-                    name="email"
-                    type="email"
-                    placeholder="Your Email"
-                    focusBorderColor="white"
-                    borderRadius="0"
-                    borderStyle="none none solid none"
-                    _focus={{ borderStyle: "solid" }}
-                  />
-                  <FormHelperText color="red">
-                    {formik.errors.email}
-                  </FormHelperText>
-                </FormControl>
-                <FormControl
-                  isInvalid={formik.touched.message && formik.errors.message}
-                >
-                  <Textarea
-                    {...formik.getFieldProps("message")}
-                    name="message"
-                    placeholder="Your Message"
-                    focusBorderColor="white"
-                    borderRadius="0"
-                    borderStyle="none none solid none"
-                    _focus={{ borderStyle: "solid" }}
-                  />
-                  <FormHelperText color="red">
-                    {formik.errors.message}
-                  </FormHelperText>
+            <VStack align="flex-start" spacing={5}>
+              <HStack spacing={4}>
+                <Icon as={FaMapMarkerAlt} w={6} h={6} color="brand.primary" />
+                <Box>
+                  <Heading size="md" fontFamily="heading">
+                    Address
+                  </Heading>
+                  <Text>Mile 3, Nkwen, Bamenda, North West Region</Text>
+                </Box>
+              </HStack>
+              <HStack spacing={4}>
+                <Icon as={FaPhone} w={6} h={6} color="brand.primary" />
+                <Box>
+                  <Heading size="md" fontFamily="heading">
+                    Phone
+                  </Heading>
+                  <Text>WhatsApp: +1 214 431 4816</Text>
+                </Box>
+              </HStack>
+              <HStack spacing={4}>
+                <Icon as={FaEnvelope} w={6} h={6} color="brand.primary" />
+                <Box>
+                  <Heading size="md" fontFamily="heading">
+                    Email
+                  </Heading>
+                  <Text>hello@thomastepi.com</Text>
+                </Box>
+              </HStack>
+            </VStack>
+            <Box
+              w="100%"
+              h="300px"
+              borderRadius="lg"
+              overflow="hidden"
+              boxShadow="lg"
+            >
+              <GoogleMaps />
+            </Box>
+          </VStack>
+
+          <VStack spacing={8} align="flex-start" w="100%">
+            <Heading fontFamily="heading" size="2xl">
+              Send Us a Message
+            </Heading>
+            {alert && (
+              <AlertBox
+                setAlert={setAlert}
+                status="success"
+                title="Success!"
+                description="Your message has been received. We will respond within the next 48 hours."
+              />
+            )}
+            <form onSubmit={formik.handleSubmit} style={{ width: "100%" }}>
+              <VStack spacing={5}>
+                                <FormControl isInvalid={!!(formik.touched.name && formik.errors.name)}>
+                                  <Input
+                                    {...formik.getFieldProps("name")}
+                                    placeholder="Your Name"
+                                    bg="brand.surface"
+                                    color="brand.text"
+                                    _placeholder={{ color: "brand.textMuted" }}
+                                    _focus={{ borderColor: "brand.primary" }}
+                                  />
+                                  <FormErrorMessage>{formik.errors.name}</FormErrorMessage>
+                                </FormControl>
+                                <FormControl isInvalid={!!(formik.touched.email && formik.errors.email)}>
+                                  <Input
+                                    {...formik.getFieldProps("email")}
+                                    type="email"
+                                    placeholder="Your Email"
+                                    bg="brand.surface"
+                                    color="brand.text"
+                                    _placeholder={{ color: "brand.textMuted" }}
+                                    _focus={{ borderColor: "brand.primary" }}
+                                  />
+                                  <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
+                                </FormControl>
+                                <FormControl isInvalid={!!(formik.touched.message && formik.errors.message)}>
+                                  <Textarea
+                                    {...formik.getFieldProps("message")}
+                                    placeholder="Your Message"
+                                    bg="brand.surface"
+                                    color="brand.text"
+                                    _placeholder={{ color: "brand.textMuted" }}
+                                    rows={6}
+                                    _focus={{ borderColor: "brand.primary" }}
+                                  />
+                                  <FormErrorMessage>{formik.errors.message}</FormErrorMessage>
                 </FormControl>
                 <Button
                   w="full"
-                  colorScheme="whiteAlpha"
+                  bg="brand.primary"
+                  color="white"
+                  _hover={{ bg: "brand.accent" }}
                   type="submit"
-                  disabled={isLoading}
                   isLoading={isLoading}
                 >
                   Send Message
                 </Button>
               </VStack>
             </form>
-            {alert && (
-              <Box mt="15px" w={!isMobile && "70%"}>
-                <AlertBox
-                  setAlert={setAlert}
-                  status="success"
-                  title="Success!"
-                  description="Your message has been received. We will respond within the next 48 hours."
-                />
-              </Box>
-            )}
-          </Stack>
-        </VStack>
+          </VStack>
+        </Grid>
       </Center>
-    </>
+    </Box>
   );
 };
 

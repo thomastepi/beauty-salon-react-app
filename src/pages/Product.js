@@ -61,6 +61,7 @@ const Product = () => {
             title="Personalize Your Gift Card"
           />
           <Grid
+            py="5rem"
             templateColumns={useBreakpointValue({
               base: "repeat(1, 1fr)",
               md: "repeat(2, 1fr)",

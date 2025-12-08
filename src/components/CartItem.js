@@ -9,6 +9,7 @@ import {
   Heading,
   HStack,
   Tooltip,
+  Divider,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
@@ -33,54 +34,63 @@ const CartItem = () => {
       <Box>
         {cart.items.length > 0 ? (
           <Stack spacing={6}>
-            {cart.items.map((item) => (
-              <HStack flexDir={isMobile && "column"} key={item.id}>
-                <HStack w={isMobile ? "70%" : "35%"}>
-                  <StaticGiftCard price={item.price} />
-                  <Tooltip label="remove item">
-                    <Button onClick={() => dispatch(removeFromCart(item.id))}>
-                      <DeleteIcon />
-                    </Button>
-                  </Tooltip>
-                </HStack>
-                <Spacer />
-                <HStack w={isMobile ? "80%" : "50%"}>
-                  <Box w="100%" display="flex" justifyContent="center">
-                    <VStack w="100%" spacing={0} alignItems="start">
-                      <Text>
-                        <span style={{ fontWeight: "bold", fontSize: "large" }}>
-                          Recipient:
-                        </span>{" "}
-                        {item.recipientEmail}
-                      </Text>
-                      <Text>
-                        <span style={{ fontWeight: "bold", fontSize: "large" }}>
-                          Sender:
-                        </span>{" "}
-                        {item.senderName}
-                      </Text>
-                      <Text>
-                        <span style={{ fontWeight: "bold", fontSize: "large" }}>
-                          Message:
-                        </span>{" "}
-                        {item.message || "N/A"}
-                      </Text>
-                    </VStack>
-                  </Box>
+            {cart.items.map((item, index) => (
+              <>
+                <HStack flexDir={isMobile && "column"} key={item.id}>
+                  <HStack w={{ base: "100%", md: "50%" }}>
+                    <StaticGiftCard price={item.price} />
+                    <Tooltip label="remove item">
+                      <Button onClick={() => dispatch(removeFromCart(item.id))}>
+                        <DeleteIcon />
+                      </Button>
+                    </Tooltip>
+                  </HStack>
                   <Spacer />
-                  <Box>
-                    <Button onClick={() => dispatch(increaseAmount(item.id))}>
-                      <ChevronUpIcon />
-                    </Button>
-                    <Text py="6px" align="center">
-                      Qty: {item.quantity}
-                    </Text>
-                    <Button onClick={() => dispatch(decreaseAmount(item.id))}>
-                      <ChevronDownIcon />
-                    </Button>
-                  </Box>
+                  <HStack w={isMobile ? "80%" : "50%"}>
+                    <Box w="100%" display="flex" justifyContent="center">
+                      <VStack w="100%" spacing={0} alignItems="start">
+                        <Text>
+                          <span
+                            style={{ fontWeight: "bold", fontSize: "large" }}
+                          >
+                            Recipient:
+                          </span>{" "}
+                          {item.recipientEmail}
+                        </Text>
+                        <Text>
+                          <span
+                            style={{ fontWeight: "bold", fontSize: "large" }}
+                          >
+                            Sender:
+                          </span>{" "}
+                          {item.senderName}
+                        </Text>
+                        <Text>
+                          <span
+                            style={{ fontWeight: "bold", fontSize: "large" }}
+                          >
+                            Message:
+                          </span>{" "}
+                          {item.message || "N/A"}
+                        </Text>
+                      </VStack>
+                    </Box>
+                    <Spacer />
+                    <Box>
+                      <Button onClick={() => dispatch(increaseAmount(item.id))}>
+                        <ChevronUpIcon />
+                      </Button>
+                      <Text py="6px" align="center">
+                        Qty: {item.quantity}
+                      </Text>
+                      <Button onClick={() => dispatch(decreaseAmount(item.id))}>
+                        <ChevronDownIcon />
+                      </Button>
+                    </Box>
+                  </HStack>
                 </HStack>
-              </HStack>
+                {index !== cart.items.length - 1 && <Divider size="md" />}
+              </>
             ))}
           </Stack>
         ) : (

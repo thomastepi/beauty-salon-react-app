@@ -29,8 +29,8 @@ const Cart = () => {
             img={`${process.env.REACT_APP_IMAGEKIT_URL}/salon-app/back-view-afro-hairstyle.jpg`}
             title="Review Your Cart"
           />
-          <Box w="70%">
-            <Box border="1px solid white" p="10px">
+          <Box w={{ base: "95%", md: "70%" }} py="5rem">
+            <Box border="1px solid white" p={{ base: "10px", md: "25px" }}>
               <CartItem />
             </Box>
             {total > 0 && (
